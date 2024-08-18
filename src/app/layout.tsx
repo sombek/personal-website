@@ -13,12 +13,11 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
 })
 export const metadata: Metadata = {
   title: {
-    template: '%s - Spencer Sharp',
-    default:
-      'Spencer Sharp - Software designer, founder, and amateur astronaut',
+    template: '%s - مدونة عبدالله هاشم',
+    default: 'مدونة عبدالله هاشم - مدونة شخصية تهتم بالتقنية والبرمجة والتصميم',
   },
   description:
-    'I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms.',
+    'مدونة شخصية تهتم بالتقنية والبرمجة والتصميم، تحتوي على مقالات ودروس ومشاريع تقنية مفتوحة المصدر.',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
