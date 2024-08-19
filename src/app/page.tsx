@@ -7,7 +7,7 @@ import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import { XIcon } from '@/components/SocialIcons'
 import logoRega from '@/images/logos/rega-logo.png'
-import logoJahez from '@/images/logos/jahez-logo.png'
+import logoJahez from '@/images/logos/jahez-logo.svg'
 import logoDrahim from '@/images/logos/drahim-logo.svg'
 import logoMoj from '@/images/logos/moj-logo.png'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
@@ -92,19 +92,19 @@ function Role({ role }: { role: Role }) {
 
   return (
     <li className="flex gap-4">
-      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-50 dark:ring-0">
+        <Image src={role.logo} alt="" className="w-7" />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
-        <dt className="sr-only">Company</dt>
+        <dt className="sr-only">الجهة</dt>
         <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
           {role.company}
         </dd>
-        <dt className="sr-only">Role</dt>
+        <dt className="sr-only">المسمى الوظيفي</dt>
         <dd className="text-xs text-zinc-500 dark:text-zinc-400">
           {role.title}
         </dd>
-        <dt className="sr-only">Date</dt>
+        <dt className="sr-only">الفترة</dt>
         <dd
           className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
           aria-label={`${startLabel} until ${endLabel}`}

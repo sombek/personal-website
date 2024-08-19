@@ -1,45 +1,10 @@
-import { Card } from '@/components/Card'
-import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { CalendlyEmbed } from '@/components/CalendlyEmbed'
-import { MdOutlineLowPriority, MdTimelapse } from 'react-icons/md'
-import { FaQuestion } from 'react-icons/fa'
-import { LuGoal } from 'react-icons/lu'
-import { PiPlant, PiPlantDuotone } from 'react-icons/pi'
+import { MdOutlineLowPriority } from 'react-icons/md'
+import { PiPlant } from 'react-icons/pi'
 import { TbMessageCircleQuestion } from 'react-icons/tb'
 import { IoTimerOutline } from 'react-icons/io5'
-
-function ToolsSection({
-  children,
-  ...props
-}: React.ComponentPropsWithoutRef<typeof Section>) {
-  return (
-    <Section {...props}>
-      <ul role="list" className="space-y-16">
-        {children}
-      </ul>
-    </Section>
-  )
-}
-
-function Tool({
-  title,
-  href,
-  children,
-}: {
-  title: string
-  href?: string
-  children: React.ReactNode
-}) {
-  return (
-    <Card as="li">
-      <Card.Title as="h3" href={href}>
-        {title}
-      </Card.Title>
-      <Card.Description>{children}</Card.Description>
-    </Card>
-  )
-}
+import coinsIcon from '@/images/wired-outline-298-coins.gif'
 
 export const metadata = {
   title: 'الإستشارات المالية للأفراد',
@@ -91,6 +56,7 @@ export default function Uses() {
           </p>
         </>
       }
+      icon={coinsIcon}
     >
       <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
         {incentives.map((incentive) => (
@@ -119,9 +85,8 @@ export default function Uses() {
             المتعلّقة بالمشاريع أو الأعمال.
           </li>
           <li className="text-lg">
-            انا غير متخصص في القوانين المالية و لا اقدر اعطيك نصائح قانونية
-            بخصوص الضرائب و القروض و الاستثمارات الكبيرة، لكن اقدر اساعدك في
-            تحديد الأولويات المالية و كيف تحققها.
+            أنا شخص غير متخصص ماليًا، لكن جميع الاستشارات من خبرتي الشخصية
+            ورؤيتي مع أشخاص سابقين.
           </li>
         </ol>
       </article>
@@ -133,7 +98,17 @@ export default function Uses() {
         >
           الحجز و الأسعار
         </h3>
-        <p className="text-lg">سعر الجلسة الواحدة 250 ريال سعودي</p>
+        <p className="text-lg">
+          سعر الجلسة الواحدة
+          <span
+            className={
+              'border-1 dark:text-teal-10 mx-2 rounded-md border-teal-500 p-1 text-teal-500 dark:border-teal-500 dark:text-teal-100'
+            }
+          >
+            250
+          </span>
+          ريال سعودي
+        </p>
         <p className="text-lg">الحجز يكون عن طريق الرابط التالي</p>
 
         <CalendlyEmbed url="https://calendly.com/abdullah-hashim/financial-plan" />
