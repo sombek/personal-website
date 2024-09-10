@@ -5,6 +5,7 @@ import { PiPlant } from 'react-icons/pi'
 import { TbMessageCircleQuestion } from 'react-icons/tb'
 import { IoTimerOutline } from 'react-icons/io5'
 import coinsIcon from '@/images/wired-outline-298-coins.gif'
+import Image, { StaticImageData } from 'next/image'
 
 export const metadata = {
   title: 'الإستشارات المالية للأفراد',
@@ -57,6 +58,9 @@ export default function Uses() {
         </>
       }
       icon={coinsIcon}
+      image={
+        'https://www.shutterstock.com/shutterstock/photos/2444646353/display_1500/stock-photo-a-hand-makes-stacks-of-coins-art-collage-2444646353.jpg'
+      }
     >
       <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
         {incentives.map((incentive) => (

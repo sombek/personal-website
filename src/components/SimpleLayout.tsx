@@ -5,24 +5,32 @@ export function SimpleLayout({
   title,
   intro,
   icon,
+  image,
   children,
 }: {
   title: string
   intro: string | React.ReactNode
   icon?: StaticImageData
+  image?: string
   children?: React.ReactNode
 }) {
   return (
     <Container className="mt-16 sm:mt-32">
-      <header className="max-w-2xl">
+      <header className="">
         <div className="flex items-center space-x-4">
           {icon && <Image src={icon} alt="" className="size-16 p-1" />}
           <h1 className="text-4xl font-bold tracking-tight text-teal-800 sm:text-5xl dark:text-zinc-100">
             {title}
           </h1>
         </div>
-
-        <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">{intro}</p>
+        <div className={'mt-6 grid grid-cols-6 gap-4'}>
+          <p className="col-span-4 mt-6 text-lg text-zinc-600 dark:text-zinc-400">
+            {intro}
+          </p>
+          {image && (
+            <img src={image} alt={'image'} className={'col-span-2 w-full'} />
+          )}
+        </div>
       </header>
       {children && <div className="mt-16 sm:mt-20">{children}</div>}
     </Container>

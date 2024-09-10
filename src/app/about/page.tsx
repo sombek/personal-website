@@ -11,6 +11,7 @@ import {
   XIcon,
 } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.jpg'
+import { AiOutlineMail } from 'react-icons/ai'
 
 function SocialLink({
   className,
@@ -30,7 +31,7 @@ function SocialLink({
         className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
       >
         <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
-        <span className="ml-4">{children}</span>
+        <span className="mr-4">{children}</span>
       </Link>
     </li>
   )
@@ -48,79 +49,101 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'عني',
   description:
-    'I’m Spencer Sharp. I live in New York City, where I design the future.',
+    'انا عبدالله هاشم، مهندس برمجيات مهتم ببناء المنتجات التقنية وتطوير الويب',
 }
 
 export default function About() {
   return (
     <Container className="mt-16 sm:mt-32">
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-        <div className="lg:pr-20">
-          <div className="max-w-xs px-2.5 lg:max-w-none">
-            <Image
-              src={portraitImage}
-              alt=""
-              sizes="(min-width: 1024px) 32rem, 20rem"
-              className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-            />
-          </div>
-        </div>
+        {/*<div className="lg:pr-20">*/}
+        {/*  <div className="max-w-xs px-2.5 lg:max-w-none">*/}
+        {/*    <Image*/}
+        {/*      src={portraitImage}*/}
+        {/*      alt=""*/}
+        {/*      sizes="(min-width: 1024px) 32rem, 20rem"*/}
+        {/*      className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"*/}
+        {/*    />*/}
+        {/*  </div>*/}
+        {/*</div>*/}
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            I’m Spencer Sharp. I live in New York City, where I design the
-            future.
+            مرحباً، أنا عبدالله اهلاً بك في مدونتي 💬
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I’ve loved making things for as long as I can remember, and wrote
-              my first program when I was 6 years old, just two weeks after my
-              mom brought home the brand new Macintosh LC 550 that I taught
-              myself to type on.
-            </p>
+              {' '}
+              يمكن أقول لكم، إني من يوم كنت صغير وأنا مهووس بالتكنولوجيا. أول
+              مشروع حقيقي لي كان وقت ما واجهتني مشكلة وأنا أحاول أحصل على بيانات
+              غياباتي من موقع الجامعة. تخيلوا كل مرة أدخل الموقع وأحاول أفهم إيش
+              صار في كل مادة؟ قلت: ليش ما أسوي تطبيق يحل هالمشكلة؟ وبالفعل، صنعت
+              تطبيق يسحب البيانات ويحولها إلى JSON، وعرضتها في صفحة ويب. تجربة
+              مو بس كانت ممتعة لي، حتى زملائي استفادوا منها.{' '}
+            </p>{' '}
             <p>
-              The only thing I loved more than computers as a kid was space.
-              When I was 8, I climbed the 40-foot oak tree at the back of our
-              yard while wearing my older sister’s motorcycle helmet, counted
-              down from three, and jumped — hoping the tree was tall enough that
-              with just a bit of momentum I’d be able to get to orbit.
-            </p>
+              {' '}
+              أنا من جيل التسعينات، يعني عشنا في فترة كانت فيها التكنولوجيا
+              محدودة. كلنا نعرف كيف الإنترنت وقتها كانت زي الشيء العجيب اللي
+              انفتح قدامنا فجأة. الفضول اللي جواتي خلاني أدخل عالم البرمجة
+              والتكنولوجيا وأتعلم كل شيء ممكن.{' '}
+            </p>{' '}
             <p>
-              I spent the next few summers indoors working on a rocket design,
-              while I recovered from the multiple surgeries it took to fix my
-              badly broken legs. It took nine iterations, but when I was 15 I
-              sent my dad’s Blackberry into orbit and was able to transmit a
-              photo back down to our family computer from space.
-            </p>
+              {' '}
+              أول جهاز إلكتروني اقتنيته كان كمبيوتر شخصي. هنا كانت البداية
+              الحقيقية لعالمي مع البرمجة. كنت أجلس بالساعات أشتغل على تصميمات
+              Cinema 4D. كنت مغرم بالنمذجة ثلاثية الأبعاد، وكل ما أصمم شيء، أحس
+              بمتعة غريبة.{' '}
+            </p>{' '}
             <p>
-              Today, I’m the founder of Planetaria, where we’re working on
-              civilian space suits and manned shuttle kits you can assemble at
-              home so that the next generation of kids really <em>can</em> make
-              it to orbit — from the comfort of their own backyards.
+              {' '}
+              دايماً كان الكمبيوتر والبرمجة هو الشيء اللي يشدني من صغري. كيف
+              الأشياء اللي حولنا تعمل؟ وكيف ممكن نطوّرها؟ كنت دايماً أفكر كيف
+              نقدر نخلي العالم التقني أفضل وأسهل.{' '}
+            </p>{' '}
+            <p>
+              {' '}
+              أكبر تحدي واجهته في مسيرتي كان كيف أقدر أكون مميز في مجالي. دايماً
+              كان يجي هاجس "كيف أكون أفضل؟". لكن مع الوقت تعلمت إني ما أقارن
+              نفسي بغيري، وأركز على تطوير نفسي وتعلم شيء جديد كل يوم. زي ما قال
+              غازي القصيبي: "آمنت بأن القمة تتسع للجميع، فلم أحسد أحدًا."{' '}
+            </p>{' '}
+            <p>
+              {' '}
+              حالياً دايماً تجيني أفكار مشاريع جديدة. المشكلة؟ الوقت! أحياناً
+              أشعر إن اليوم ينتهي وأنا ما خلصت شيء. بس صرت أكتب كل فكرة تجيني في
+              ملاحظاتي في تطبيق "اوبسيديان"، ووقت ما ألاقي فرصة أبدأ أشتغل
+              عليها.{' '}
+            </p>{' '}
+            <p>
+              {' '}
+              بالنسبة للمستقبل؟ حالياً أفكر كيف أقدر أدخل الذكاء الاصطناعي
+              والتعلم الآلي في مشاريعي. ممكن أفكار اليوم تصير مشاريع بكرة اللي
+              بتغير العالم، مين يدري؟{' '}
             </p>
           </div>
         </div>
         <div className="lg:pr-20">
           <ul role="list">
             <SocialLink href="#" icon={XIcon}>
-              Follow on X
+              تابعني على X
             </SocialLink>
             <SocialLink href="#" icon={InstagramIcon} className="mt-4">
-              Follow on Instagram
+              تابعني على Instagram
             </SocialLink>
             <SocialLink href="#" icon={GitHubIcon} className="mt-4">
-              Follow on GitHub
+              تابعني على GitHub
             </SocialLink>
             <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
-              Follow on LinkedIn
+              تابعني على LinkedIn
             </SocialLink>
             <SocialLink
-              href="mailto:spencer@planetaria.tech"
-              icon={MailIcon}
+              href="mailto:abdullah-hashim@outlook.com"
+              icon={AiOutlineMail}
               className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
             >
-              spencer@planetaria.tech
+              abdullah-hashim@outlook.com
             </SocialLink>
           </ul>
         </div>
