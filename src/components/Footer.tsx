@@ -29,6 +29,7 @@ export function Footer() {
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                 <NavLink href="/about">عني</NavLink>
                 <NavLink href="/articles">المقالات</NavLink>
+                <NavLink href="/projects">مشاريعي</NavLink>
                 <NavLink href="/financial-consultation">
                   الإستشارات المالية للأفراد
                 </NavLink>

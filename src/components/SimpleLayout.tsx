@@ -11,7 +11,7 @@ export function SimpleLayout({
   title: string
   intro: string | React.ReactNode
   icon?: StaticImageData
-  image?: string
+  image?: ReactNode
   children?: React.ReactNode
 }) {
   return (
@@ -27,9 +27,7 @@ export function SimpleLayout({
           <p className="col-span-4 mt-6 text-lg text-zinc-600 dark:text-zinc-400">
             {intro}
           </p>
-          {image && (
-            <img src={image} alt={'image'} className={'col-span-2 w-full'} />
-          )}
+          {image && <div className={'col-span-2 w-full'}>{image}</div>}
         </div>
       </header>
       {children && <div className="mt-16 sm:mt-20">{children}</div>}

@@ -8,42 +8,27 @@ import logoCosmos from '@/images/logos/cosmos.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
+import { BiCoin } from 'react-icons/bi'
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'تطبيق متابعة مالية شخصية',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      'الفكرة بدأت بملف اكسل، بعدين قلت ليه ما احوله إلى كود؟ وبدأت ببناء تطبيق بسيط لمتابعة النفقات الشخصية',
+    link: {
+      href: 'https://spending-tracker-tau.vercel.app/',
+      label: 'spending-tracker-tau.vercel.app',
+    },
+    logo: '💰',
   },
   {
-    name: 'Animaginary',
-    description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
-  },
-  {
-    name: 'HelioStream',
-    description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
-  },
-  {
-    name: 'cosmOS',
-    description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
-  },
-  {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
+    name: 'وصفات البيت',
+    description: 'غالبا احاول اسجل الوصفات الي احبها واحب اشاركها مع الناس',
+    link: {
+      href: 'https://h-recipes.vercel.app/',
+      label: 'h-recipes.vercel.app',
+    },
+    logo: '🍳',
   },
 ]
 
@@ -59,15 +44,15 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 export const metadata: Metadata = {
-  title: 'Projects',
-  description: 'Things I’ve made trying to put my dent in the universe.',
+  title: 'مشاريعي',
+  description: 'بعض المشاريع التقنية الي احاول من خلالها ترك بصمتي في المجال',
 }
 
 export default function Projects() {
   return (
     <SimpleLayout
-      title="Things I’ve made trying to put my dent in the universe."
-      intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+      title="هنا تقدر تشوف بعض المشاريع الي اشتغلت عليها"
+      intro="غالبا اذا فيه افكار جديدة في بالي بحاول اضيفها هنا بحيث ممكن اشاركها مع الناس ونتعلم من بعض، غالبا راح تكون المشاريع مفتوحة المصدر وممكن تشارك فيها او تستفيد منها"
     >
       <ul
         role="list"
@@ -76,12 +61,9 @@ export default function Projects() {
         {projects.map((project) => (
           <Card as="li" key={project.name}>
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image
-                src={project.logo}
-                alt=""
-                className="h-8 w-8"
-                unoptimized
-              />
+              <div className="flex h-8 w-8 items-center justify-center text-2xl font-bold text-teal-500 dark:text-teal-400">
+                {project.logo}
+              </div>
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
               <Card.Link href={project.link.href}>{project.name}</Card.Link>

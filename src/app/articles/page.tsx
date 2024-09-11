@@ -5,6 +5,9 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 import articleLogo from '@/images/wired-outline-245-edit-document.gif'
+import { CldImage } from 'next-cloudinary'
+import HostedImage from '@/components/HostedImage'
+
 function Article({ article }: { article: ArticleWithSlug }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
@@ -49,7 +52,11 @@ export default async function ArticlesIndex() {
       intro="أنا مهندس برمجيات مهتم في بناء برمجيات قابلة للتوسع وفهم كل ما يتعلق بعالم البرمجة. هنا أشارك أفكاري، تجاربي، وكل ما أتعلمه خلال تجربتي"
       icon={articleLogo}
       image={
-        'https://www.shutterstock.com/shutterstock/photos/2203904017/display_1500/stock-photo-creative-abstract-template-collage-of-hands-holding-chess-figures-opponents-intellectual-game-2203904017.jpg'
+        <HostedImage
+          src={'personal-website/articles'}
+          width={600}
+          height={450}
+        />
       }
     >
       <div className="md:border-r md:border-zinc-100 md:pr-6 md:dark:border-zinc-700/40">
