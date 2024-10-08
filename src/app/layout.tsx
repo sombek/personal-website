@@ -14,10 +14,10 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
 export const metadata: Metadata = {
   title: {
     template: '%s - مدونة عبدالله هاشم',
-    default: 'مدونة عبدالله هاشم - مدونة شخصية تهتم بالتقنية والبرمجة والتصميم',
+    default: 'مدونة عبدالله هاشم - مدونة شخصية',
   },
   description:
-    'مدونة شخصية تهتم بالتقنية والبرمجة والتصميم، تحتوي على مقالات ودروس ومشاريع تقنية مفتوحة المصدر.',
+    'مدونة شخصية اشارك فيها تجاربي وافكاري في المجال الشخصي و التقني',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
