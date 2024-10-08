@@ -15,6 +15,7 @@ import { formatDate } from '@/lib/formatDate'
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
 import { GoBriefcase } from 'react-icons/go'
 import { MdEmail } from 'react-icons/md'
+import Tags from "@/components/Tags";
 
 function Article({ article }: { article: ArticleWithSlug }) {
   return (
@@ -24,9 +25,14 @@ function Article({ article }: { article: ArticleWithSlug }) {
       </Card.Title>
       <Card.Eyebrow as="time" dateTime={article.date} decorate>
         {formatDate(article.date)}
+        <div className="mx-1 opacity-50">
+          <Tags tags={article.tags} />
+        </div>
       </Card.Eyebrow>
       <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
+      <Card.Cta>
+        قراءة المقالة
+      </Card.Cta>
     </Card>
   )
 }

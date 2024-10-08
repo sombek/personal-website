@@ -53,7 +53,6 @@ export default async function ArticlesIndex() {
     <SimpleLayout
       title="مقالات و تجارب و أفكار"
       intro="في هذه الصفحة أشارك بعض المقالات والتجارب والأفكار في مجال التربية او التقنية او البرمجة"
-      icon={articleLogo}
     >
       <div className="md:border-r md:border-zinc-100 md:pr-6 md:dark:border-zinc-700/40">
         <div className="flex max-w-3xl flex-col space-y-16">

@@ -59,8 +59,6 @@ export default function Uses() {
           </p>
         </>
       }
-      icon={coinsIcon}
-
     >
       <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
         {incentives.map((incentive) => (
