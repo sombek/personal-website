@@ -11,6 +11,7 @@ import { formatDate } from '@/lib/formatDate'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { FaArrowCircleRight } from 'react-icons/fa'
 import { FaArrowRight } from 'react-icons/fa6'
+import Tags from "@/components/Tags";
 
 export function ArticleLayout({
   article,
@@ -45,13 +46,14 @@ export function ArticleLayout({
                 dateTime={article.date}
                 className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
               >
-                <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
+                <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"/>
                 <span className="mr-3">{formatDate(article.date)}</span>
               </time>
             </header>
             <Prose className="mt-8" data-mdx-content>
               {children}
             </Prose>
+            <Tags tags={article.tags} />
           </article>
         </div>
       </div>

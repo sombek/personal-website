@@ -24,7 +24,7 @@ export function SimpleLayout({
           </h1>
         </div>
         <div className={'mt-6 grid grid-cols-6 gap-4'}>
-          <p className="col-span-4 mt-6 text-lg text-zinc-600 dark:text-zinc-400">
+          <p className="col-span-6 mt-6 text-lg text-zinc-600 dark:text-zinc-400 sm:col-span-4">
             {intro}
           </p>
           {image && <div className={'col-span-2 w-full'}>{image}</div>}

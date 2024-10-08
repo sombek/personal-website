@@ -183,7 +183,7 @@ export default async function Home() {
             مدونة عبدالله هاشم
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            هنا اكتب المقالات التي تخص البرمجة والتصميم والتطوير والتقنية
+            هنا اشارك معكم مقالاتي وأفكاري في المجال المهني او الشخصي
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />

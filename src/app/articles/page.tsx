@@ -7,6 +7,7 @@ import { formatDate } from '@/lib/formatDate'
 import articleLogo from '@/images/wired-outline-245-edit-document.gif'
 import { CldImage } from 'next-cloudinary'
 import HostedImage from '@/components/HostedImage'
+import Tags from '@/components/Tags'
 
 function Article({ article }: { article: ArticleWithSlug }) {
   return (
@@ -26,21 +27,23 @@ function Article({ article }: { article: ArticleWithSlug }) {
         <Card.Description>{article.description}</Card.Description>
         <Card.Cta>قراءة المقالة</Card.Cta>
       </Card>
+
       <Card.Eyebrow
         as="time"
         dateTime={article.date}
         className="mt-1 hidden md:block"
       >
         {formatDate(article.date)}
+        <Tags tags={article.tags} />
       </Card.Eyebrow>
     </article>
   )
 }
 
 export const metadata: Metadata = {
-  title: 'مرحبًا بكم في مدونتي التقنية!',
+  title: 'مقالات و تجارب و أفكار',
   description:
-    'جميع أفكاري الطويلة حول تصميم البرمجيات وبناء الشركات وصناعة الطيران، مجمعة بترتيب زمني.',
+    'في هذه الصفحة أشارك بعض المقالات والتجارب والأفكار في مجال التربية او التقنية او البرمجة',
 }
 
 export default async function ArticlesIndex() {
@@ -48,16 +51,9 @@ export default async function ArticlesIndex() {
 
   return (
     <SimpleLayout
-      title="مقالات حول تصميم البرمجيات"
-      intro="أنا مهندس برمجيات مهتم في بناء برمجيات قابلة للتوسع وفهم كل ما يتعلق بعالم البرمجة. هنا أشارك أفكاري، تجاربي، وكل ما أتعلمه خلال تجربتي"
+      title="مقالات و تجارب و أفكار"
+      intro="في هذه الصفحة أشارك بعض المقالات والتجارب والأفكار في مجال التربية او التقنية او البرمجة"
       icon={articleLogo}
-      image={
-        <HostedImage
-          src={'personal-website/articles'}
-          width={600}
-          height={450}
-        />
-      }
     >
       <div className="md:border-r md:border-zinc-100 md:pr-6 md:dark:border-zinc-700/40">
         <div className="flex max-w-3xl flex-col space-y-16">

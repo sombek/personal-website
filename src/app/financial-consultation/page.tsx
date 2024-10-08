@@ -60,13 +60,7 @@ export default function Uses() {
         </>
       }
       icon={coinsIcon}
-      image={
-        <HostedImage
-          src={'personal-website/financial-consultation'}
-          width={600}
-          height={450}
-        />
-      }
+
     >
       <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
         {incentives.map((incentive) => (
