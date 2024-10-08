@@ -30,6 +30,15 @@ const projects = [
     },
     logo: '🍳',
   },
+  {
+    name: 'تطبيق سحب بيانات الغياب',
+    description: 'تطبيق بسيط لسحب بيانات الغياب من نظام الجامعة',
+    link: {
+      href: 'https://github.com/sombek/lms/tree/master/Server',
+      label: 'github.com/sombek/lms',
+    },
+    logo: '📚',
+  },
 ]
 
 function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
