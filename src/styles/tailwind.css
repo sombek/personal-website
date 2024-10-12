@@ -7,3 +7,15 @@
   background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=04686F);
   @apply p-4 text-white underline hover:no-underline cursor-default;
 }
+
+.prose table {
+  @apply text-right;
+}
+.prose table th {
+  @apply text-center;
+}
+.prose ul , .prose ul li,
+.prose ol, .prose ol li {
+  padding-left: unset;
+  padding-right: 1.5rem;
+}
