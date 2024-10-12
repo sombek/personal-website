@@ -4,9 +4,6 @@ import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
-import articleLogo from '@/images/wired-outline-245-edit-document.gif'
-import { CldImage } from 'next-cloudinary'
-import HostedImage from '@/components/HostedImage'
 import Tags from '@/components/Tags'
 
 function Article({ article }: { article: ArticleWithSlug }) {
@@ -43,7 +40,7 @@ function Article({ article }: { article: ArticleWithSlug }) {
 export const metadata: Metadata = {
   title: 'مقالات و تجارب و أفكار',
   description:
-    'في هذه الصفحة أشارك بعض المقالات والتجارب والأفكار في مجال التربية او التقنية او البرمجة',
+    'اغلب المقالات تتحدث عن تجاربي في المجال المهني او تكون مقارانات بين تقنيات معينة او تجارب شخصية',
 }
 
 export default async function ArticlesIndex() {
@@ -52,7 +49,7 @@ export default async function ArticlesIndex() {
   return (
     <SimpleLayout
       title="مقالات و تجارب و أفكار"
-      intro="في هذه الصفحة أشارك بعض المقالات والتجارب والأفكار في مجال التربية او التقنية او البرمجة"
+      intro="اغلب المقالات تتحدث عن تجاربي في المجال المهني او تكون مقارانات بين تقنيات معينة او تجارب شخصية"
     >
       <div className="md:border-r md:border-zinc-100 md:pr-6 md:dark:border-zinc-700/40">
         <div className="flex max-w-3xl flex-col space-y-16">
