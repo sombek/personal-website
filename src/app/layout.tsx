@@ -2,7 +2,7 @@ import { type Metadata } from 'next'
 
 import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
-
+import { Analytics } from '@vercel/analytics/react'
 import '@/styles/tailwind.css'
 import { IBM_Plex_Sans_Arabic } from 'next/font/google'
 
@@ -39,6 +39,7 @@ export default function RootLayout({
         direction: 'rtl',
       }}
     >
+      <Analytics />
       <body className="flex h-full bg-zinc-50 dark:bg-black">
         <Providers>
           <div className="flex w-full">
