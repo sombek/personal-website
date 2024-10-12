@@ -132,7 +132,7 @@ export default function Uses() {
               'border-1 dark:text-teal-10 mx-2 rounded-md border-teal-500 p-1 text-teal-500 dark:border-teal-500 dark:text-teal-100'
             }
           >
-            250
+            75
           </span>
           ريال سعودي
         </p>
