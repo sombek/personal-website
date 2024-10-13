@@ -5,6 +5,7 @@ import { Layout } from '@/components/Layout'
 import { Analytics } from '@vercel/analytics/react'
 import '@/styles/tailwind.css'
 import { IBM_Plex_Sans_Arabic } from 'next/font/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
   weight: ['100', '200', '300', '400', '500', '600', '700'],
@@ -40,6 +41,7 @@ export default function RootLayout({
       }}
     >
       <Analytics />
+      <SpeedInsights />
       <body className="flex h-full bg-zinc-50 dark:bg-black">
         <Providers>
           <div className="flex w-full">
