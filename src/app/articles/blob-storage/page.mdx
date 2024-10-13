@@ -1,5 +1,6 @@
 import {ArticleLayout} from '@/components/ArticleLayout'
-import IntroImage from './intro.png'
+import IntroImageComponent from "./into-imageaaaa";
+
 export const article = {
     author: 'Abdullah Hashim',
     date: '2024-10-12',
@@ -46,8 +47,7 @@ async def upload_file(file: UploadFile = File(...)):
 طيب حتى نفهم احنا ايش قاعدين نشرح او ايش قاعدين نقيم هذا التشارت المفروض يوضح احنا فين:
 
 
-<Image src={IntroImage} alt="مقارنة بين طرق تخزين الملفات" height={'40%'}/>
-
+<IntroImageComponent/>
 
 1. المفروض المستخدم يرسل الملف إلى السيرفر
 2. السيرفر يستقبل الملف
