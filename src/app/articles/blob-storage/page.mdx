@@ -16,7 +16,20 @@ export const article = {
 export const metadata = {
     title: article.title,
     description: article.description,
+    twitter: {
+        card: 'summary',
+        creator: '@sombekcs',
+        title: article.title,
+        description: article.description,
+    },
 }
+
+ما قد فكرت كيف أبشر يخزن صور الهويات؟ 🤔
+أو ملفات الورد و الـpdf الي تنرفع في الblackboard؟
+خصوصا انها بيانات غير نصية
+
+هذه المقالة كتبتها عن هذا السؤال
+https://abdullah-h.com/articles/blob-storage
 
 export default (props) => <ArticleLayout article={article} {...props} />
 
