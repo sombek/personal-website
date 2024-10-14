@@ -18,9 +18,16 @@ export const metadata = {
     description: article.description,
     twitter: {
         card: 'summary',
-        creator: '@sombekcs',
+        creator: '@abdullahjsx',
         title: article.title,
         description: article.description,
+    },
+    openGraph: {
+        type: 'article',
+        title: article.title,
+        description: article.description,
+        tags: article.tags,
+        authors: article.author,
     },
 }
 
