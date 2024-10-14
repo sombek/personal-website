@@ -1,6 +1,6 @@
 const Tags = ({ tags }: { tags: string[] }) => {
   return (
-    <div className="z-20 flex flex-wrap gap-2">
+    <div className="z-20 flex flex-wrap gap-2 cursor-default pointer-events-none">
       {tags.map((tag) => (
         <div
           key={tag}

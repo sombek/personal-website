@@ -1,13 +1,12 @@
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { CalendlyEmbed } from '@/components/CalendlyEmbed'
-import { MdOutlineLowPriority } from 'react-icons/md'
-import { PiPlant } from 'react-icons/pi'
-import { TbMessageCircleQuestion } from 'react-icons/tb'
-import { IoTimerOutline } from 'react-icons/io5'
-import coinsIcon from '@/images/wired-outline-298-coins.gif'
-import Image, { StaticImageData } from 'next/image'
-import HostedImage from '@/components/HostedImage'
 import { BiLogoTelegram } from 'react-icons/bi'
+import {
+  AddToListIcon,
+  Plant01Icon,
+  QuestionIcon,
+  Timer02Icon,
+} from '@/app/financial-consultation/Icons'
 
 export const metadata = {
   title: 'الإستشارات المالية للأفراد',
@@ -18,23 +17,23 @@ export const metadata = {
 const incentives = [
   {
     name: 'الجلسة',
-    icon: <IoTimerOutline className="size-16 text-teal-500" />,
+    icon: <Timer02Icon className="size-16" />,
     description: 'الجلسة بتكون أونلاين، و تقريبا تاخد حدود ساعة إلى ساعة و نصف',
   },
   {
     name: 'أسئلة مالية',
-    icon: <TbMessageCircleQuestion className="size-16 text-teal-500" />,
+    icon: <QuestionIcon className="size-16" />,
     description:
       'نحتاج نعرف معلومات عن الوضع المالي الحالي مثل الدخل، النفقات، القروض وغيرها',
   },
   {
     name: 'الأولويات المالية',
-    icon: <MdOutlineLowPriority className="size-16 text-teal-500" />,
+    icon: <AddToListIcon className="size-16" />,
     description: 'بنسولف عن الأولويات للفترة الجاية، مثل زواج، سيارة، بيت...',
   },
   {
     name: 'الخطة المالية',
-    icon: <PiPlant className="size-16 text-teal-500" />,
+    icon: <Plant01Icon className="size-16" />,
     description: 'بناء خطة مالية شهرية وسنوية حتى تحقق الأهداف',
   },
 ]
@@ -109,7 +108,7 @@ export default function Uses() {
             target="_blank"
             rel="noreferrer"
             className={
-              'flex items-center text-lg text-teal-500 hover:underline dark:text-teal-100'
+              'flex items-center text-lg text-teal-800 hover:underline dark:text-teal-100'
             }
           >
             <BiLogoTelegram className="size-8 text-teal-500" />
