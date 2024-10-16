@@ -3,8 +3,8 @@ import { CalendlyEmbed } from '@/components/CalendlyEmbed'
 import { BiLogoTelegram } from 'react-icons/bi'
 import {
   AddToListIcon,
+  MessageQuestionIcon,
   Plant01Icon,
-  QuestionIcon,
   Timer02Icon,
 } from '@/app/financial-consultation/Icons'
 
@@ -17,23 +17,23 @@ export const metadata = {
 const incentives = [
   {
     name: 'الجلسة',
-    icon: <Timer02Icon className="size-16" />,
+    icon: <Timer02Icon className="size-16 dark:text-teal-50" />,
     description: 'الجلسة بتكون أونلاين، و تقريبا تاخد حدود ساعة إلى ساعة و نصف',
   },
   {
     name: 'أسئلة مالية',
-    icon: <QuestionIcon className="size-16" />,
+    icon: <MessageQuestionIcon className="size-16 dark:text-teal-50" />,
     description:
       'نحتاج نعرف معلومات عن الوضع المالي الحالي مثل الدخل، النفقات، القروض وغيرها',
   },
   {
     name: 'الأولويات المالية',
-    icon: <AddToListIcon className="size-16" />,
+    icon: <AddToListIcon className="size-16 dark:text-teal-50" />,
     description: 'بنسولف عن الأولويات للفترة الجاية، مثل زواج، سيارة، بيت...',
   },
   {
     name: 'الخطة المالية',
-    icon: <Plant01Icon className="size-16" />,
+    icon: <Plant01Icon className="size-16 dark:text-teal-50" />,
     description: 'بناء خطة مالية شهرية وسنوية حتى تحقق الأهداف',
   },
 ]
@@ -111,7 +111,7 @@ export default function Uses() {
               'flex items-center text-lg text-teal-800 hover:underline dark:text-teal-100'
             }
           >
-            <BiLogoTelegram className="size-8 text-teal-500" />
+            <BiLogoTelegram className="size-8 text-teal-500 dark:text-teal-50" />
             تواصل معي على تليجرام
           </a>
         </div>
