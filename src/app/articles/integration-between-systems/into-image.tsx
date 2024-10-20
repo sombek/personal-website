@@ -32,7 +32,15 @@ export function IntroImageComponent({ image }: { image: string }) {
       throw new Error('Invalid image')
   }
 
-  return <Image src={ImageEle} alt={alt} width={500} />
+  return (
+    <Image
+      src={ImageEle}
+      alt={alt}
+      // width={500}
+      height={500}
+      className={'dark:bg-zinc-200'}
+    />
+  )
 }
 
 export default IntroImageComponent

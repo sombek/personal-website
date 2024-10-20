@@ -42,7 +42,7 @@ export default function RootLayout({
     >
       <Analytics />
       <SpeedInsights />
-      <body className="flex h-full bg-zinc-50 dark:bg-black">
+      <body className="flex h-full bg-zinc-50 dark:bg-zinc-950">
         <Providers>
           <div className="flex w-full">
             <Layout>{children}</Layout>
