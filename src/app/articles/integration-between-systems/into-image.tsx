@@ -3,6 +3,7 @@ import ApiImage from './api.png'
 import WebhookImage from './webhook.png'
 import Db1Image from './db-2-db-1.png'
 import Db2Image from './db-2-db-2.png'
+import IntroImage from './intro.png'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 
@@ -11,6 +12,11 @@ export function IntroImageComponent({ image }: { image: string }) {
   let ImageEle = null
   let alt = null
   switch (image) {
+    case 'intro':
+      ImageEle = IntroImage
+      alt =
+        'Article header image with a square says "Integration between systems"'
+      break
     case 'api':
       ImageEle = ApiImage
       alt = 'Image of an API architecture shows a client, server, and database'

@@ -4,7 +4,7 @@ import IntroImageComponent from "./into-image";
 export const article = {
     author: 'Abdullah Hashim',
     date: '2024-10-20',
-    title: 'التكامل بين الأنظمة',
+    title: 'تكامل الأنظمة',
     description: 'كيف الأنظمة تتكلم مع بعض؟ و ايش هي الطرق المتعارف عليها اليوم لإنشاء قنوات تواصل بين الأنظمة. المقالة تشرح أساسيات التكامل بين الأنظمة مثل الـAPIs, Webhooks و غيرها من طرق التكامل.',
     tags: [
         'تطوير الويب',
@@ -35,6 +35,10 @@ export const metadata = {
 
 
 export default (props) => <ArticleLayout article={article} {...props} />
+
+<div className={"flex flex-row gap-4 justify-center"}>
+    <IntroImageComponent image="intro"/>
+</div>
 
 اليوم عشان تبني نظام جيد ويخدم المستخدمين بشكل افضل قد تحتاج تكامل مع بعض الأنظمة الخارجية.
 امثلة تكامل الأنظمة كثيرة و نعيشها بشكل يومي، مثل تكامل شركات التأمين و ابشر للسماح بتجديد إستمارة السيارة. التكامل بين المستشفيات و شركات التأمين الطبي.
