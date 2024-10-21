@@ -1,13 +1,21 @@
 'use client'
-import ApiImage from './api.png'
-import WebhookImage from './webhook.png'
+import ApiImage from './images/api.svg'
+import ApiImageDark from './images/api-dark.svg'
+import WebhookImage from './images/webhook.svg'
+import WebhookImageDark from './images/webhook-dark.svg'
 import Db1Image from './db-2-db-1.png'
 import Db2Image from './db-2-db-2.png'
 import IntroImage from './intro.png'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 
-export function IntroImageComponent({ image }: { image: string }) {
+export function IntroImageComponent({
+  image,
+  height,
+}: {
+  image: string
+  height?: number
+}) {
   let { resolvedTheme } = useTheme()
   let ImageEle = null
   let alt = null
@@ -18,11 +26,13 @@ export function IntroImageComponent({ image }: { image: string }) {
         'Article header image with a square says "Integration between systems"'
       break
     case 'api':
-      ImageEle = ApiImage
+      if (resolvedTheme === 'dark') ImageEle = ApiImageDark
+      else ImageEle = ApiImage
       alt = 'Image of an API architecture shows a client, server, and database'
       break
     case 'webhook':
-      ImageEle = WebhookImage
+      if (resolvedTheme === 'dark') ImageEle = WebhookImageDark
+      else ImageEle = WebhookImage
       alt = 'Image of a webhook architecture between two systems to share data'
       break
     case 'db-1':
@@ -42,8 +52,7 @@ export function IntroImageComponent({ image }: { image: string }) {
     <Image
       src={ImageEle}
       alt={alt}
-      // width={500}
-      height={500}
+      height={height ? height : 500}
       className={'dark:bg-zinc-200'}
     />
   )
