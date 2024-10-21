@@ -3,8 +3,14 @@ import ApiImage from './images/api.svg'
 import ApiImageDark from './images/api-dark.svg'
 import WebhookImage from './images/webhook.svg'
 import WebhookImageDark from './images/webhook-dark.svg'
-import Db1Image from './db-2-db-1.png'
-import Db2Image from './db-2-db-2.png'
+// db-1.svg
+// db-1-dark.svg
+// db-2.svg
+// db-2-dark.svg
+import Db1 from './images/db-1.svg'
+import Db1Dark from './images/db-1-dark.svg'
+import Db2 from './images/db-2.svg'
+import Db2Dark from './images/db-2-dark.svg'
 import IntroImage from './intro.png'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
@@ -12,9 +18,11 @@ import { useTheme } from 'next-themes'
 export function IntroImageComponent({
   image,
   height,
+  comment,
 }: {
   image: string
   height?: number
+  comment?: string
 }) {
   let { resolvedTheme } = useTheme()
   let ImageEle = null
@@ -36,11 +44,13 @@ export function IntroImageComponent({
       alt = 'Image of a webhook architecture between two systems to share data'
       break
     case 'db-1':
-      ImageEle = Db1Image
+      if (resolvedTheme === 'dark') ImageEle = Db1Dark
+      else ImageEle = Db1
       alt = 'Image of a database architecture between a client and server'
       break
     case 'db-2':
-      ImageEle = Db2Image
+      if (resolvedTheme === 'dark') ImageEle = Db2Dark
+      else ImageEle = Db2
       alt =
         'Image of a database architecture between a client and server with active active replication'
       break

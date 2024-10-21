@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import { useRouter } from 'next/navigation'
 
 import { AppContext } from '@/app/providers'
@@ -8,10 +8,8 @@ import { Container } from '@/components/Container'
 import { Prose } from '@/components/Prose'
 import { type ArticleWithSlug } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
-import { AiOutlineArrowRight } from 'react-icons/ai'
-import { FaArrowCircleRight } from 'react-icons/fa'
 import { FaArrowRight } from 'react-icons/fa6'
-import Tags from "@/components/Tags";
+import Tags from '@/components/Tags'
 
 export function ArticleLayout({
   article,
@@ -46,7 +44,7 @@ export function ArticleLayout({
                 dateTime={article.date}
                 className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
               >
-                <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"/>
+                <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
                 <span className="mr-3">{formatDate(article.date)}</span>
               </time>
             </header>
