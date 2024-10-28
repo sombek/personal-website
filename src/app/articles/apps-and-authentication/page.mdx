@@ -5,7 +5,7 @@ export const article = {
     author: 'Abdullah Hashim',
     date: '2024-10-25',
     title: 'التطبيقات و توثيق الدخول',
-    description: '',
+    description: "تعرف على طرق التوثيق في التطبيقات وكيف تحمي بيانات المستخدمين بشكل أفضل. نتكلم عن كيفية التحقق من صحة البيانات المدخلة مع المخزنة، ونستعرض خدمات السحابية مثل Firebase وAuth0.",
     tags: [
         'Security',
         'Authentication',
@@ -21,7 +21,7 @@ export const metadata = {
         creator: '@abdullahjsx',
         title: article.title,
         description: article.description,
-        images: ''
+        images: 'https://abdullah-h.com/cards/apps-and-authentication.png'
     },
     openGraph: {
         type: 'article',
@@ -29,16 +29,13 @@ export const metadata = {
         description: article.description,
         tags: article.tags,
         authors: article.author,
-        images: ''
+        images: 'https://abdullah-h.com/cards/apps-and-authentication.png'
     },
 }
 
 
 export default (props) => <ArticleLayout article={article} {...props} />
 
-
-
-## مدخل
 موضوع التوثيق يعتبر من أهم النقاط في الأنظمة و التطبيقات، لأنه يتعلق بحماية بيانات المستخدمين وضمان أمانهم. هو من أكثر النقاط حساسية، لأن أي خلل فيه ممكن يسبب مشاكل كبيرة وممكن تأثر على سمعة و ثقة التطبيق.
 
 عشان كذا، مهم نعرف كيف العناصر تتواصل مع بعضها البعض حتى تتأكد من موثوقية المستخدم، وكيف نقدر نضمن أن كل شيء يشتغل بشكل آمن وسلس. فهم هذه العملية يساعدنا نختار الطريقة الأنسب لتطبيقاتنا ونحمي بيانات المستخدمين بشكل أفضل.
