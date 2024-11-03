@@ -11,7 +11,6 @@
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
     "@headlessui/react": "^2.1.7",
-    "@mapbox/rehype-prism": "^0.9.0",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.9",
@@ -35,6 +34,7 @@
     "react-calendly": "^4.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
+    "rehype-starry-night": "^2.2.0",
     "remark-gfm": "^4.0.0",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.6.2"

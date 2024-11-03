@@ -59,12 +59,14 @@ export function IntroImageComponent({
   }
 
   return (
-    <Image
-      src={ImageEle}
-      alt={alt}
-      height={height ? height : 500}
-      className={'dark:bg-zinc-200'}
-    />
+    <div className="flex w-full justify-center">
+      <Image
+        src={ImageEle}
+        alt={alt}
+        height={height ? height : 500}
+        className={'dark:bg-zinc-200'}
+      />
+    </div>
   )
 }
 

@@ -40,8 +40,15 @@ export default function RootLayout({
         direction: 'rtl',
       }}
     >
-      <Analytics />
-      <SpeedInsights />
+      {
+        // if in production, add the Google Analytics and Speed Insights scripts
+        process.env.NODE_ENV === 'production' && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        )
+      }
       <body className="flex h-full bg-zinc-50 dark:bg-zinc-950">
         <Providers>
           <div className="flex w-full">
