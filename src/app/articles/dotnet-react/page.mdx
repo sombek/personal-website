@@ -1,0 +1,205 @@
+import {ArticleLayout} from '@/components/ArticleLayout'
+import ArticleImage from "./article-images";
+
+export const article = {
+    author: 'Abdullah Hashim',
+    date: '2024-11-04',
+    title: 'دوت نت و رياكت: دمج React مع تطبيق .NET Razor Pages',
+    description: 'تشرح المقالة كيفية دمج تطبيق React مع تطبيق .NET Razor Pages باستخدام Vite، مع توضيح خطوات إعداد بيئة العمل وربط الـ Builds من React إلى .NET.',
+    tags: [
+        "dotnet",
+        "react",
+        "razor-pages"
+    ]
+}
+
+export const metadata = {
+    title: article.title,
+    description: article.description,
+    twitter: {
+        card: 'summary_large_image',
+        creator: '@abdullahjsx',
+        title: article.title,
+        description: article.description,
+        images: ''
+    },
+    openGraph: {
+        type: 'article',
+        title: article.title,
+        description: article.description,
+        tags: article.tags,
+        authors: article.author,
+        publishedTime: '20241104T000000+0300',
+        section: 'Technology',
+        locale: 'ar_SA',
+        images: ''
+    }
+}
+
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+تطوير التطبيقات الويب المتقدمة باستخدام MVC في .NET من المهام التي قد تتطلب بعض الجهد، خاصةً عندما يتعلق الأمر بـ(State Management)، او التحقق من صحة المدخلات في واجهات المستخدم (Frontend Validation)، أو التعامل مع نماذج بيانات معقدة.
+
+بالمقابل تطوير مثل هذه الخصائص عبر أطر عمل جافاسكربت الحديثة مثل React وغيرها يجعل هذه العملية أكثر سهولة. بالإضافة إلى توفر دعم البرمجيات المفتوحة و المجتمعات الغنية بالمكتبات والأدوات الجاهزة التي تسهل تنفيذ مثل هذه المهام.
+
+
+مؤخرًا، تم تكليفي بمهمة تتطلب إنشاء نموذج إدخال بيانات (Form) بداخل تطبيق ويب تم بناؤه مسبقًا باستخدام .NET ويعتمد على Razor Pages MVC. و خيار إستخدام إطار عمل آخر لم يكن متاح.
+
+بعد عمليات بحث مطولة، اعتقد وصلت لحل وسطي لطيف، بحيث تستطيع إستخدام React Vite و تضمينه بداخل تطبيق الويب المبني عن طريق .NET.
+
+في هذه المقالة بنشرح التفاصيل وكيف نبني بيئة عمل مماثلة، و نجاوب على عدة اسئلة تتعلق بالموضوع.
+
+---
+
+## تجهيز بيئة العمل
+في البداية سنقوم بإنشاء تطبيقين:
+
+الأول هو تطبيق .NET باستخدام القوالب الأساسية لـ Razor Pages
+
+والثاني هو تطبيق React باستخدام Vite
+
+
+### 1. إنشاء تطبيق .NET باستخدام قالب Razor Pages
+
+ابدأ بإنشاء تطبيق .NET جديد باستخدام القوالب الأساسية لـ Razor Pages. يمكنك القيام بذلك باستخدام الأوامر التالية:
+
+```shell
+dotnet new razor -n MyRazorApp
+cd MyRazorApp
+```
+
+### 2. إنشاء تطبيق React باستخدام Vite
+
+بعد إعداد تطبيق .NET، ننتقل إلى إنشاء تطبيق React باستخدام Vite.
+Vite هو أداة بناء حديثة وسريعة لتطبيقات JavaScript. لإنشاء تطبيق React باستخدام Vite، استخدم الأوامر التالية:
+
+```bash
+npm create vite@latest react-app -- --template react-ts
+cd my-react-app
+npm install
+```
+
+### 3. ربط الـ Builds من React إلى .NET
+
+لدمج تطبيق React مع تطبيق .NET، نحتاج إلى إعداد عملية بناء (Build) تقوم بنقل الملفات النهائية إلى مجلد `wwwroot` في تطبيق .NET.
+يمكن تحقيق ذلك عن طريق تعديل إعدادات Vite لتوليد ملف `manifest.json` الذي يحتوي على معلومات حول الملفات المولدة.
+نحتاج `manifest.json` لتحديد مسارات الملفات المولدة من عملية بناء React، مما يسهل تضمينها بشكل ديناميكي في تطبيق .NET وهذا يساعدنا لإستخدام ال cache.
+
+
+لضمان تضمين ملفات CSS بشكل صحيح في تطبيق React، يمكننا استخدام حزمة `vite-plugin-css-injected-by-js`.
+هذه الحزمة تساعد في إضافة ملفات CSS مباشرة من JavaScript، مما يسهل عملية الدمج مع تطبيق .NET. قم بتثبيت الحزمة وإجراء التعديلات اللازمة في إعدادات Vite.
+```bash
+cd react-app
+npm i vite-plugin-css-injected-by-js -D
+```
+
+```ts
+// in file: vite.config.ts
+import {defineConfig} from "vite";
+import react from "@vitejs/plugin-react";
+
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
+
+export default defineConfig({
+  plugins: [cssInjectedByJsPlugin(), react()],
+  build: {
+    manifest: true,
+    rollupOptions: {
+      output: {
+        dir: "../wwwroot/react-app", // Output to the wwwroot folder of .NET project
+      },
+    },
+  },
+});
+```
+
+### 4. ربط الصفحة من تطبيق Razor
+
+أخيرًا، نحتاج إلى ربط الصفحة التي تحتوي على React في تطبيق Razor.
+للقيام بذلك راح نحتاج عدة خطوات:
+- عند طلب الصفحة المطلوبة نحتاج ناخذ إسم الملف الذي تم توليده في جزئية الView Controller عن طريق هذا الكود:
+```c#
+using System.Text.Json;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace mvc_and_react.Pages;
+
+public class ReactAppModel : PageModel
+{
+    public string? JsFileName { get; set; }
+    public void OnGet()
+    {
+	    // مسار الملف الذي سيتم إنشائه بعد كل عملية بناء لتطبيق الرياكت
+        var manifestFilePath = Path.Combine(
+            Directory.GetCurrentDirectory(),
+            "wwwroot",
+            "react-app",
+            "manifest.json"
+        );
+
+        // قراءة الملف
+        using StreamReader reader = new(manifestFilePath);
+        var json = reader.ReadToEnd();
+        if (string.IsNullOrEmpty(json)) return;
+
+		// البحث عن اسم ملف الجافاسكربت الجديد
+        var manifestData = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, object>>>(json);
+        var data = manifestData?["index.html"]["file"];
+        JsFileName = data?.ToString();
+    }
+}
+```
+
+- في ملف ال cshtml نحتاج نضيف سطرين مهمين:
+```html
+<div id="root"></div>
+<script type="module" crossorigin src="react-app/@Model.JsFileName" defer/>
+
+```
+السطر الأول هو اول مدخل لتطبيق react بداخل هذه الصفحة
+السطر الثاني يطلب ملف الjs الذي تم إنشائه مسبقًا في الView Controller مثل ماهو موضح اعلاه
+`@Model.JsFileName` بحيث هذا المتغير يحمل اسم الملف المطلوب
+
+اخيرا، نجد الكود اخيرا يعمل بشكل جيد:
+<ArticleImage image={'sample-app'}/>
+
+### نسخة تعمل من الكود اعلاه على Github:
+عبر الرابط ادناه تجد نسخة كاملة للتطبيق:
+https://github.com/sombek/mvc-and-react
+
+
+---
+
+## رسم بياني لطريقة عمل و تواصل العناصر
+الفكرة تنقسم إلى جزئين:
+- Compile Time: عملية بناء تطبيق React ونقل الملفات النهائية إلى مجلد `wwwroot` في تطبيق .NET
+<div className="w-full" style={{justifyItems: 'center'}}>
+    <ArticleImage image={'compile-time'}/>
+</div>
+
+
+- Run Time: عرض الصفحة التي تحتوي على React في تطبيق Razor
+<div className="w-full" style={{justifyItems: 'center'}}>
+    <ArticleImage image={'run-time'}/>
+</div>
+
+---
+## اسئلة
+
+
+| السؤال                                                                   | الإجابة                                                                                                                                                                                                              |
+|--------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **كيف تكون طريقة التطوير؟**                                              | يمكنك تشغيل أوامر التطوير لكل من React و .NET بشكل متزامن باستخدام `vite build --watch --emptyOutDir` لتطبيق React <br/>و `dotnet watch run` لتطبيق .NET. هذا يتيح لك رؤية التغييرات في الوقت الحقيقي أثناء التطوير. |
+| **كيف تتعامل مع ملفات الـ CSS؟**                                         | هناك طريقتان للتعامل مع ملفات CSS: إما عن طريق استيرادها في تخطيط .NET (layout) أو استيرادها في تطبيق React. من الأفضل التركيز على مكان واحد لتجنب التعارضات.                                                        |
+| **هل بيشتغل الـ Routing؟**                                               | نعم، يعمل الـ Routing بشكل جيد، لكن يجب أن تكون الصفحة الأولى هي الصفحة التي تقوم باستيراد ملف الـ JS.                                                                                                               |
+| **هل التوثيق بيشتغل؟**                                                   | غالبًا ما تستخدم تطبيقات Razor (cookies) أو (sessions)، لذلك يمكن لـ React استخدام نفس الشيء والتعامل معه.                                                                                                           |
+| **طيب لو عندي بيانات مسبقة يحتاجها التطبيق حتى يشتغل، مثل اوبجكت JSON؟** | يمكنك استخدام `window` في صفحة Razor، وعندما تصل الصفحة إلى المستخدم، يمكن لـ React طلب نفس الأوبجكت والعمل عليه.                                                                                                    |
+| **كيف نضمن وجود آخر نسخة دائمًا في البيئة التشغيلية؟**                   | يمكنك إنشاء بايبلاين في CI/CD لضمان عدم الحاجة إلى تدخل يدوي لإنشاء تطبيق React ونقله إلى .NET.                                                                                                                      |
+
+
+---
+
+في النهاية اعتقد دائما أن الحلول السيطة هي الأفضل، الي حد ما يمكنك الاستفادة من مزايا كل من React و .NET في تطبيق واحد. وهذا يعتبر حلاً جيدًا للمشاريع التي تحتاج إلى تكامل بين الجزئين.
+
