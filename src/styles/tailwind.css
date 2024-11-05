@@ -1,7 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import './prism.css';
-@import './starry-night-styles.css';
+@import './tritanopia.css';
 @import 'tailwindcss/utilities';
 
 .highlight {
@@ -31,3 +31,4 @@
     border-right-color: #e2e8f0;
     border-left: unset;
 }
+
