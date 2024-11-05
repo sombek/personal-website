@@ -1,5 +1,6 @@
 import {ArticleLayout} from '@/components/ArticleLayout'
 import ArticleImage from "./article-images";
+import {GitHubIcon} from "../../../components/SocialIcons";
 
 export const article = {
     author: 'Abdullah Hashim',
@@ -165,11 +166,15 @@ public class ReactAppModel : PageModel
 اخيرا، نجد الكود اخيرا يعمل بشكل جيد:
 <ArticleImage image={'sample-app'}/>
 
-### نسخة تعمل من الكود اعلاه على Github:
+## نسخة تعمل من الكود اعلاه على Github:
 عبر الرابط ادناه تجد نسخة كاملة للتطبيق:
-https://github.com/sombek/mvc-and-react
 
-
+<div className="flex flex-row gap-2 items-center">
+    <GitHubIcon className="w-6 h-6"/>
+    <a href="https://github.com/sombek/mvc-and-react" target="_blank" className="text-blue-500">
+        https://github.com/sombek/mvc-and-react
+    </a>
+</div>
 ---
 
 ## رسم بياني لطريقة عمل و تواصل العناصر
