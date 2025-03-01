@@ -60,11 +60,13 @@ export async function GET(req: Request) {
     })
   }
 
-  return new Response(feed.rss2(), {
+  const rssFeed = `<?xml-stylesheet type="text/xsl" href="${siteUrl}/feed-style.xsl" ?>\n${feed.rss2()}`
+
+  return new Response(rssFeed, {
     status: 200,
     headers: {
       'content-type': 'application/xml',
-      'cache-control': 's-maxage=31556952',
+      'cache-control': 's-maxage=3600, stale-while-revalidate',
     },
   })
 }

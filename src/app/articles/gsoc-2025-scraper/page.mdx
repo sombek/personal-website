@@ -1,0 +1,157 @@
+import {ArticleLayout} from '@/components/ArticleLayout'
+import IntroImageComponent from "./into-image";
+
+export const article = {
+    author: 'Abdullah Hashim',
+    date: '2025-03-01',
+    title: 'صيف قوقل للتطوير لعام 2025',
+    description: "",
+    tags: [
+        'LLM',
+        'Web Scraping',
+        'Python'
+    ]
+}
+
+export const metadata = {
+    title: article.title,
+    description: article.description,
+    twitter: {
+        card: 'summary_large_image',
+        creator: '@abdullahjsx',
+        title: article.title,
+        description: article.description,
+        images: 'https://abdullah-h.com/cards/apps-and-authentication.png'
+    },
+    openGraph: {
+        type: 'article',
+        title: article.title,
+        description: article.description,
+        tags: article.tags,
+        authors: article.author,
+        publishedTime: '20250301T000000+0300',
+        section: 'Technology',
+        locale: 'ar_SA',
+        images: 'https://abdullah-h.com/cards/apps-and-authentication.png'
+    }
+}
+
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+
+## مقدمة
+
+قبل يومين قوقل نشروا قائمة المشاريع المقبولة لبرنامج صيف قوقل للتطوير لعام 2025
+و من السنة الماضية كنت مهتم بالمشاركة في هذا البرنامج، لكن كان الوقت متأخر اني اقدم.
+
+على كل حال، قعدت اتصفح المشاريع المقبولة بس وجدت ان فيه مشاريع مره كثير وصعب انك تقدر تشوفها كلها بسرعة.
+
+واليوم احنا في عصر الAI و الـ Web Scraping، فقلت ليش ما اجرب اعمل شيء يساعد اني اسوي فلترة للمشاريع بناء على اهتماماتي و and then it was a rabbit hole after that 😂
+
+
+<div className={"flex flex-row gap-4 justify-center"}>
+    <IntroImageComponent image="intro"/>
+</div>
+
+
+## الخطة
+
+- سحب روابط المؤسسات المشاركة في البرنامج
+- سحب البيانات الخاصة بالمشاريع المقبولة
+- إرسال الروابط لJina.AI لتحليل النصوص
+- إرسال الprompt لChatGPT لإختصار الوصف
+- إنشاء JSON Files لكل مشروع
+- إنشاء صفحة ويب لعرض المشاريع
+
+
+حاولت استخدم اكثر من Model للتلخيص لكن حسيت عشان اشغله اني بأخذ وقت اطول من اللازم
+جربت Huggingface Inference API بس واجهتني مشاكل في Token Limit
+جربت
+- facebook/bart-large-cnn
+- google-t5/t5-large
+
+بس ماقدرت اشغلهم على الـ Inference API
+
+بعدين رحنا للذيبان ChatGPT بس كنت شايل هم انه يصرف مبلغ كبير
+عشان كذا استخدمت ChatGPT-4o-mini و كانت مرره سعره معقول
+< 1$ USD
+
+ChatGPT4o-mini Prompt:
+```python
+
+def query(context):
+    """Send a request to the OpenAI ChatGPT API to summarize the context with bullet points."""
+    messages = [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant in summarizing the context.",
+        },
+        {
+            "role": "user",
+            "content": f"""Please summarize the following context with bullet points and a short description for each point:
+            {context}
+
+            On each project focus on:
+            - What is the project about?
+            - What are the main goals?
+            """,
+        },
+    ]
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=messages,
+        response_format={
+            "type": "json_schema",
+            "json_schema": {
+                "name": "project_summary_schema",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "projects": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "project_name": {
+                                        "description": "The name of the project",
+                                        "type": "string",
+                                    },
+                                    "summary": {
+                                        "description": "Short description of the project",
+                                        "type": "string",
+                                    },
+                                    "difficulty": {
+                                        "description": "Difficulty level of the project",
+                                        "type": "string",
+                                    },
+                                },
+                                "required": ["project_name", "summary"],
+                                "additionalProperties": False,
+                            },
+                        }
+                    },
+                    "required": ["projects"],
+                    "additionalProperties": False,
+                },
+            },
+        },
+    )
+```
+
+
+بالنسبة للـ Jina.AI كانت تجربة جميلة جداً و سهلة واعتقد سهلت جزء كبير من Scraping
+
+بالنسبة للفرونت إند استخمدت v0 و كان رهييييب!
+اعطاني نتائج مرضية جداً و بسرعة
+
+## النتائج
+
+المشروع النهائي متوفر على الرابط التالي:
+https://gsoc-scraper.vercel.app/
+
+البيانات و الsource code متوفرة على Github:
+https://github.com/sombek/gsoc-scraper
+
+
