@@ -60,13 +60,14 @@ export default function About() {
     '@type': 'Person',
     name: 'عبدالله هاشم',
     alternateName: 'Abdullah Hashim',
-    description: 'Software Engineer passionate about building technical products and web applications. Interested in helping people achieve their goals and develop their lives through technology.',
+    description:
+      'Software Engineer passionate about building technical products and web applications. Interested in helping people achieve their goals and develop their lives through technology.',
     jobTitle: 'مهندس برمجيات',
     sameAs: [
       'https://x.com/abdullahjsx',
       'https://instagram.com/sombek',
       'https://github.com/sombek',
-      'https://www.linkedin.com/in/abdullah-hashim/'
+      'https://www.linkedin.com/in/abdullah-hashim/',
     ],
     email: 'abdullah-hashim@outlook.com',
     knowsAbout: [
@@ -75,19 +76,14 @@ export default function About() {
       'البرمجة',
       'Software Engineering',
       'Web Development',
-      'Programming'
+      'Programming',
     ],
     knowsLanguage: ['العربية', 'English'],
-    hasOccupation: {
-      '@type': 'Occupation',
-      name: 'Software Engineer',
-      description: 'Building technical products and web applications'
-    },
     alumniOf: {
       '@type': 'EducationalOrganization',
       name: 'Yanbu Industrial College',
       description: 'Studied Computer Science',
-      url: 'https://edugate.rcjy.edu.sa/jyup/unifiedAdmission'
+      url: 'https://edugate.rcjy.edu.sa/jyup/unifiedAdmission',
     },
   }
 
@@ -114,17 +110,16 @@ export default function About() {
               أهلًا، أنا عبدالله 🌟
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+              <p>سعيد جدًا بزيارتك لموقعي الشخصي!</p>
               <p>
-                سعيد جدًا بزيارتك لموقعي الشخصي! 
+                من يومي وأنا مهتم بالتقنية وأجهزة الكمبيوتر، وهذا اللي خلاني
+                أدرس علوم الحاسب وأشتغل في مجال تطوير البرمجيات. بحيث اقدر اساعد
+                الناس في تحقيق أهدافهم وتطوير حياتهم و اصنع منتجات تقنية تسهل
+                حياتهم
               </p>
               <p>
-                من يومي وأنا مهتم بالتقنية وأجهزة الكمبيوتر، وهذا اللي خلاني أدرس
-                علوم الحاسب وأشتغل في مجال تطوير البرمجيات. بحيث اقدر اساعد الناس
-                في تحقيق أهدافهم وتطوير حياتهم و اصنع منتجات تقنية تسهل حياتهم
-              </p>
-              <p>
-                اللي يحفزني في عملي هو تطوير حلول تقنية تحل مشاكل حقيقية وتترك أثر
-                إيجابي على حياة الناس 🌍
+                اللي يحفزني في عملي هو تطوير حلول تقنية تحل مشاكل حقيقية وتترك
+                أثر إيجابي على حياة الناس 🌍
               </p>
 
               <hr />
@@ -135,8 +130,8 @@ export default function About() {
                 والشخصية و تفتح لي مساحات جديدة للإبداع والتفكير المنطقي 🧠
               </p>
               <p>
-                احب اطبخ و اجرب وصفات جديدة، بالمناسبة تقدر تزور صفحة الوصفات اللي
-                عملتها
+                احب اطبخ و اجرب وصفات جديدة، بالمناسبة تقدر تزور صفحة الوصفات
+                اللي عملتها
                 <Link
                   href="https://h-recipes.vercel.app/"
                   target={'_blank'}
@@ -150,8 +145,9 @@ export default function About() {
               </p>
 
               <p>
-                أؤمن بأهمية التعلم المستمر والتطور، سواءً في البرمجة أو في مجالات
-                ثانية. أواجه التحديات بروح منفتحة، وأعتبرها فرص للنمو والتعلم
+                أؤمن بأهمية التعلم المستمر والتطور، سواءً في البرمجة أو في
+                مجالات ثانية. أواجه التحديات بروح منفتحة، وأعتبرها فرص للنمو
+                والتعلم
               </p>
               <p>
                 عشان كده عملت المدونة هذه حتى اقدر اشارك كل حاجة جديدة اتعلمها
