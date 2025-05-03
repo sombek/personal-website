@@ -1,6 +1,9 @@
 import glob from 'fast-glob'
 
+type ArticleStatus = 'published' | 'pending'
+
 interface Article {
+  status: ArticleStatus
   title: string
   description: string
   author: string
@@ -19,6 +22,10 @@ async function importArticle(
     default: React.ComponentType
     article: Article
   }
+  // if not status is provided, set it to published
+  if (!article.status) {
+    article.status = 'published'
+  }
 
   return {
     slug: articleFilename.replace(/(\/page)?\.mdx$/, ''),
@@ -32,6 +39,8 @@ export async function getAllArticles() {
   })
 
   let articles = await Promise.all(articleFilenames.map(importArticle))
+  // remove articles with pending status
+  articles = articles.filter((article) => article.status !== 'pending')
 
   return articles.sort((a, z) => +new Date(z.date) - +new Date(a.date))
 }

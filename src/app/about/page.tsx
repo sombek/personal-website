@@ -1,6 +1,7 @@
 import { type Metadata } from 'next'
 import Link from 'next/link'
 import clsx from 'clsx'
+import { Person, WithContext } from 'schema-dts'
 
 import { Container } from '@/components/Container'
 import {
@@ -54,109 +55,151 @@ export const metadata: Metadata = {
 }
 
 export default function About() {
+  const jsonLd: WithContext<Person> = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'عبدالله هاشم',
+    alternateName: 'Abdullah Hashim',
+    description: 'Software Engineer passionate about building technical products and web applications. Interested in helping people achieve their goals and develop their lives through technology.',
+    jobTitle: 'مهندس برمجيات',
+    sameAs: [
+      'https://x.com/abdullahjsx',
+      'https://instagram.com/sombek',
+      'https://github.com/sombek',
+      'https://www.linkedin.com/in/abdullah-hashim/'
+    ],
+    email: 'abdullah-hashim@outlook.com',
+    knowsAbout: [
+      'تطوير البرمجيات',
+      'تطوير الويب',
+      'البرمجة',
+      'Software Engineering',
+      'Web Development',
+      'Programming'
+    ],
+    knowsLanguage: ['العربية', 'English'],
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: 'Software Engineer',
+      description: 'Building technical products and web applications'
+    },
+    alumniOf: {
+      '@type': 'EducationalOrganization',
+      name: 'Yanbu Industrial College',
+      description: 'Studied Computer Science',
+      url: 'https://edugate.rcjy.edu.sa/jyup/unifiedAdmission'
+    },
+  }
+
   return (
-    <Container className="mt-16 sm:mt-32">
-      <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-        {/*<div className="lg:pr-20">*/}
-        {/*  <div className="max-w-xs px-2.5 lg:max-w-none">*/}
-        {/*    <Image*/}
-        {/*      src={portraitImage}*/}
-        {/*      alt=""*/}
-        {/*      sizes="(min-width: 1024px) 32rem, 20rem"*/}
-        {/*      className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"*/}
-        {/*    />*/}
-        {/*  </div>*/}
-        {/*</div>*/}
-        <div className="lg:order-first lg:row-span-2">
-          <h1 className="text-4xl font-bold tracking-tight text-teal-800 sm:text-5xl dark:text-zinc-100">
-            أهلًا، أنا عبدالله 🌟
-          </h1>
-          <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-            <p>
-              سعيد جدًا بزيارتك لموقعي الشخصي! 
-            </p>
-            <p>
-              من يومي وأنا مهتم بالتقنية وأجهزة الكمبيوتر، وهذا اللي خلاني أدرس
-              علوم الحاسب وأشتغل في مجال تطوير البرمجيات. بحيث اقدر اساعد الناس
-              في تحقيق أهدافهم وتطوير حياتهم و اصنع منتجات تقنية تسهل حياتهم
-            </p>
-            <p>
-              اللي يحفزني في عملي هو تطوير حلول تقنية تحل مشاكل حقيقية وتترك أثر
-              إيجابي على حياة الناس 🌍
-            </p>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Container className="mt-16 sm:mt-32">
+        <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+          {/*<div className="lg:pr-20">*/}
+          {/*  <div className="max-w-xs px-2.5 lg:max-w-none">*/}
+          {/*    <Image*/}
+          {/*      src={portraitImage}*/}
+          {/*      alt=""*/}
+          {/*      sizes="(min-width: 1024px) 32rem, 20rem"*/}
+          {/*      className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"*/}
+          {/*    />*/}
+          {/*  </div>*/}
+          {/*</div>*/}
+          <div className="lg:order-first lg:row-span-2">
+            <h1 className="text-4xl font-bold tracking-tight text-teal-800 sm:text-5xl dark:text-zinc-100">
+              أهلًا، أنا عبدالله 🌟
+            </h1>
+            <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+              <p>
+                سعيد جدًا بزيارتك لموقعي الشخصي! 
+              </p>
+              <p>
+                من يومي وأنا مهتم بالتقنية وأجهزة الكمبيوتر، وهذا اللي خلاني أدرس
+                علوم الحاسب وأشتغل في مجال تطوير البرمجيات. بحيث اقدر اساعد الناس
+                في تحقيق أهدافهم وتطوير حياتهم و اصنع منتجات تقنية تسهل حياتهم
+              </p>
+              <p>
+                اللي يحفزني في عملي هو تطوير حلول تقنية تحل مشاكل حقيقية وتترك أثر
+                إيجابي على حياة الناس 🌍
+              </p>
 
-            <hr />
+              <hr />
 
-            <p>برا العمل، أستمتع بهواياتي المفضلة: الطبخ 🍳 ولعب التنس 🎾</p>
-            <p>
-              اكتشفت إن الأنشطة دي تساعدني أحقق توازن مثالي بين حياتي المهنية
-              والشخصية و تفتح لي مساحات جديدة للإبداع والتفكير المنطقي 🧠
-            </p>
-            <p>
-              احب اطبخ و اجرب وصفات جديدة، بالمناسبة تقدر تزور صفحة الوصفات اللي
-              عملتها
-              <Link
-                href="https://h-recipes.vercel.app/"
-                target={'_blank'}
-                className={
-                  'cursor-pointer px-1 font-bold text-teal-500 hover:text-teal-400 hover:underline dark:text-teal-100'
-                }
+              <p>برا العمل، أستمتع بهواياتي المفضلة: الطبخ 🍳 ولعب التنس 🎾</p>
+              <p>
+                اكتشفت إن الأنشطة دي تساعدني أحقق توازن مثالي بين حياتي المهنية
+                والشخصية و تفتح لي مساحات جديدة للإبداع والتفكير المنطقي 🧠
+              </p>
+              <p>
+                احب اطبخ و اجرب وصفات جديدة، بالمناسبة تقدر تزور صفحة الوصفات اللي
+                عملتها
+                <Link
+                  href="https://h-recipes.vercel.app/"
+                  target={'_blank'}
+                  className={
+                    'cursor-pointer px-1 font-bold text-teal-500 hover:text-teal-400 hover:underline dark:text-teal-100'
+                  }
+                >
+                  هنا
+                  <BiLinkExternal className="mr-1 inline-block h-4 w-4" />
+                </Link>
+              </p>
+
+              <p>
+                أؤمن بأهمية التعلم المستمر والتطور، سواءً في البرمجة أو في مجالات
+                ثانية. أواجه التحديات بروح منفتحة، وأعتبرها فرص للنمو والتعلم
+              </p>
+              <p>
+                عشان كده عملت المدونة هذه حتى اقدر اشارك كل حاجة جديدة اتعلمها
+                واكتشفها، وأفيد الناس اللي بيدوروا على معلومات تقنية ومحتوى
+              </p>
+
+              <p>أشكرك على زيارتك، وأتمنى تلقى في موقعي ما يلهمك ويفيدك.</p>
+              <p>لو عندك اي سؤال او استشارة استفسار، اي حاجة خلينا نتواصل!</p>
+            </div>
+          </div>
+
+          <div className="lg:pr-20">
+            <ul role="list">
+              <SocialLink href="https://x.com/abdullahjsx" icon={XIcon}>
+                تابعني على X
+              </SocialLink>
+              <SocialLink
+                href="https://instagram.com/sombek"
+                icon={InstagramIcon}
+                className="mt-4"
               >
-                هنا
-                <BiLinkExternal className="mr-1 inline-block h-4 w-4" />
-              </Link>
-            </p>
-
-            <p>
-              أؤمن بأهمية التعلم المستمر والتطور، سواءً في البرمجة أو في مجالات
-              ثانية. أواجه التحديات بروح منفتحة، وأعتبرها فرص للنمو والتعلم
-            </p>
-            <p>
-              عشان كده عملت المدونة هذه حتى اقدر اشارك كل حاجة جديدة اتعلمها
-              واكتشفها، وأفيد الناس اللي بيدوروا على معلومات تقنية ومحتوى
-            </p>
-
-            <p>أشكرك على زيارتك، وأتمنى تلقى في موقعي ما يلهمك ويفيدك.</p>
-            <p>لو عندك اي سؤال او استشارة استفسار، اي حاجة خلينا نتواصل!</p>
+                تابعني على Instagram
+              </SocialLink>
+              <SocialLink
+                href="https://github.com/sombek"
+                icon={GitHubIcon}
+                className="mt-4"
+              >
+                تابعني على GitHub
+              </SocialLink>
+              <SocialLink
+                href="https://www.linkedin.com/in/abdullah-hashim/"
+                icon={LinkedInIcon}
+                className="mt-4"
+              >
+                تابعني على LinkedIn
+              </SocialLink>
+              <SocialLink
+                href="mailto:abdullah-hashim@outlook.com"
+                icon={AiOutlineMail}
+                className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+              >
+                abdullah-hashim@outlook.com
+              </SocialLink>
+            </ul>
           </div>
         </div>
-
-        <div className="lg:pr-20">
-          <ul role="list">
-            <SocialLink href="https://x.com/abdullahjsx" icon={XIcon}>
-              تابعني على X
-            </SocialLink>
-            <SocialLink
-              href="https://instagram.com/sombek"
-              icon={InstagramIcon}
-              className="mt-4"
-            >
-              تابعني على Instagram
-            </SocialLink>
-            <SocialLink
-              href="https://github.com/sombek"
-              icon={GitHubIcon}
-              className="mt-4"
-            >
-              تابعني على GitHub
-            </SocialLink>
-            <SocialLink
-              href="https://www.linkedin.com/in/abdullah-hashim/"
-              icon={LinkedInIcon}
-              className="mt-4"
-            >
-              تابعني على LinkedIn
-            </SocialLink>
-            <SocialLink
-              href="mailto:abdullah-hashim@outlook.com"
-              icon={AiOutlineMail}
-              className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
-            >
-              abdullah-hashim@outlook.com
-            </SocialLink>
-          </ul>
-        </div>
-      </div>
-    </Container>
+      </Container>
+    </>
   )
 }

@@ -10,6 +10,8 @@ import { type ArticleWithSlug } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 import { FaArrowRight } from 'react-icons/fa6'
 import Tags from '@/components/Tags'
+import { BlogPosting } from 'schema-dts'
+import { WithContext } from 'schema-dts'
 
 export function ArticleLayout({
   article,
@@ -20,9 +22,30 @@ export function ArticleLayout({
 }) {
   let router = useRouter()
   let { previousPathname } = useContext(AppContext)
+  const jsonLd: WithContext<BlogPosting> = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: article.title,
+    name: article.title,
+    inLanguage: 'ar',
+    description:
+      'اغلب المقالات تتحدث عن تجاربي في المجال المهني او تكون مقارانات بين تقنيات معينة او تجارب شخصية',
+    articleBody: article.description,
+    datePublished: article.date, // Using the date of the first article
+    url: `https://abdullah-h.com/articles/${article.slug}`,
+    image: `https://abdullah-h.com/cards/${article.slug}.png`,
+    author: {
+      '@type': 'Person',
+      name: 'Abdullah Hashim',
+    },
+  }
 
   return (
     <Container className="mt-16 lg:mt-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="xl:relative">
         <div className="mx-auto max-w-2xl">
           {previousPathname && (
