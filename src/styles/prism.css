@@ -45,3 +45,8 @@ pre[class*='language-'] {
 .token.combinator {
   color: theme('colors.zinc.400');
 }
+
+.prose hr {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
