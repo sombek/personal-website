@@ -50,3 +50,8 @@ pre[class*='language-'] {
   margin-top: 1rem !important;
   margin-bottom: 1rem !important;
 }
+
+.prose ul li,
+.prose ul {
+  margin: 0.5rem 0;
+}
