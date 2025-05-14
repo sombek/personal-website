@@ -26,7 +26,7 @@ function Article({ article }: { article: ArticleWithSlug }) {
       <Card.Eyebrow as="time" dateTime={article.date} decorate>
         {formatDate(article.date)}
         <div className="mx-1 opacity-50">
-          <Tags tags={article.tags} />
+          <Tags tags={article.tags.slice(0, 3)} />
         </div>
       </Card.Eyebrow>
       <Card.Description>{article.description}</Card.Description>
