@@ -135,13 +135,6 @@ function Resume() {
       },
     },
     {
-      company: 'شركة جاهز التقنية',
-      title: 'Staff Software Engineer',
-      logo: logoJahez,
-      start: '2023',
-      end: '2023',
-    },
-    {
       company: 'دراهم',
       title: 'Senior Software Engineer',
       logo: logoDrahim,
