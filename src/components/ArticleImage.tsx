@@ -43,7 +43,7 @@ export function ArticleImage({
       />
       {label &&
         (labelLink ? (
-          <Link href={labelLink}>
+          <Link href={labelLink} target="_blank">
             <label htmlFor={alt.toLowerCase().replace(/\s+/g, '-')}>
               {label}
             </label>
