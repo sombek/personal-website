@@ -60,9 +60,7 @@ export async function GET(req: Request) {
     })
   }
 
-  const rssFeed = `<?xml-stylesheet type="text/xsl" href="${siteUrl}/feed-style.xsl" ?>\n${feed.rss2()}`
-
-  return new Response(rssFeed, {
+  return new Response(feed.rss2(), {
     status: 200,
     headers: {
       'content-type': 'application/xml',
