@@ -8,6 +8,7 @@ interface ArticleImageProps {
   labelLink?: string
   width?: number
   height?: number
+  children?: React.ReactNode
 }
 
 export function ArticleImage({
@@ -17,7 +18,36 @@ export function ArticleImage({
   labelLink,
   width = 300,
   height = 300,
+  children,
 }: ArticleImageProps) {
+  const imageId = alt.toLowerCase().replace(/\s+/g, '-')
+  const imageElement = (
+    <Image
+      src={src}
+      style={{
+        width: `${width}px`,
+        height: `${height}px`,
+        objectFit: 'contain',
+        borderRadius: '10px',
+      }}
+      width={width}
+      height={height}
+      id={imageId}
+      alt={alt}
+    />
+  )
+
+  const labelElement = label && (
+    <label
+      htmlFor={imageId}
+      style={{
+        cursor: labelLink ? 'pointer' : 'default',
+      }}
+    >
+      {label}
+    </label>
+  )
+
   return (
     <div
       style={{
@@ -26,33 +56,21 @@ export function ArticleImage({
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: '0.8rem',
+        margin: '0',
       }}
     >
-      <Image
-        src={src}
-        style={{
-          width: `${width}px`,
-          height: `${height}px`,
-          objectFit: 'cover',
-          borderRadius: '10px',
-        }}
-        width={width}
-        height={height}
-        id={alt.toLowerCase().replace(/\s+/g, '-')}
-        alt={alt}
-      />
-      {label &&
-        (labelLink ? (
-          <Link href={labelLink} target="_blank">
-            <label htmlFor={alt.toLowerCase().replace(/\s+/g, '-')}>
-              {label}
-            </label>
-          </Link>
-        ) : (
-          <label htmlFor={alt.toLowerCase().replace(/\s+/g, '-')}>
-            {label}
-          </label>
-        ))}
+      {labelLink ? (
+        <Link href={labelLink} target="_blank" style={{ textAlign: 'center' }}>
+          {imageElement}
+          {labelElement}
+        </Link>
+      ) : (
+        <>
+          {imageElement}
+          {labelElement}
+        </>
+      )}
+      {children && children}
     </div>
   )
 }

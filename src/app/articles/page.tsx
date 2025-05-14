@@ -31,7 +31,7 @@ function Article({ article }: { article: ArticleWithSlug }) {
         className="mt-1 hidden md:block"
       >
         {formatDate(article.date)}
-        <Tags tags={article.tags} />
+        <Tags tags={article.tags.slice(0, 3)} />
       </Card.Eyebrow>
     </article>
   )

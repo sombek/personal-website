@@ -13,6 +13,42 @@ import Tags from '@/components/Tags'
 import { BlogPosting } from 'schema-dts'
 import { WithContext } from 'schema-dts'
 
+const convertChilderIntoText = (children: React.ReactNode): string => {
+  const escapeHtml = (text: string): string => {
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;')
+      .replace(/\n/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+  }
+
+  if (children == null) {
+    return ''
+  }
+
+  if (typeof children === 'string') {
+    return escapeHtml(children)
+  }
+
+  if (typeof children === 'number') {
+    return escapeHtml(children.toString())
+  }
+
+  if (Array.isArray(children)) {
+    return children.map(convertChilderIntoText).join(' ')
+  }
+
+  if (typeof children === 'object' && 'props' in children) {
+    return convertChilderIntoText(children.props.children)
+  }
+
+  return ''
+}
+
 export function ArticleLayout({
   article,
   children,
@@ -25,18 +61,22 @@ export function ArticleLayout({
   const jsonLd: WithContext<BlogPosting> = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://abdullah-h.com/articles/${article.slug}`,
+    },
     headline: article.title,
     name: article.title,
     inLanguage: 'ar',
-    description:
-      'اغلب المقالات تتحدث عن تجاربي في المجال المهني او تكون مقارانات بين تقنيات معينة او تجارب شخصية',
-    articleBody: article.description,
-    datePublished: article.date, // Using the date of the first article
-    url: `https://abdullah-h.com/articles/${article.slug}`,
+    description: article.description,
+    articleBody: convertChilderIntoText(children),
+    datePublished: article.date,
+    keywords: article.tags.join(','),
     image: `https://abdullah-h.com/cards/${article.slug}.png`,
     author: {
       '@type': 'Person',
       name: 'Abdullah Hashim',
+      email: 'abdullah-hashim@outlook.com',
     },
   }
 
