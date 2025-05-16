@@ -62,7 +62,7 @@ export default function Uses() {
       <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
         {incentives.map((incentive) => (
           <div key={incentive.name} className="sm:flex lg:block">
-            <div className="align-center sm:flex-shrink-0">
+            <div className="align-center sm:shrink-0">
               {incentive.icon}
             </div>
             <div className="mt-4 sm:ml-6 sm:mt-0 lg:ml-0 lg:mt-6">
@@ -128,7 +128,7 @@ export default function Uses() {
           سعر الجلسة الواحدة
           <span
             className={
-              'border-1 dark:text-teal-10 mx-2 rounded-md border-teal-500 p-1 text-teal-500 dark:border-teal-500 dark:text-teal-100'
+              'border dark:text-teal-10 mx-2 rounded-md border-teal-500 p-1 text-teal-500 dark:border-teal-500 dark:text-teal-100'
             }
           >
             75

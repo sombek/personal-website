@@ -2,6 +2,7 @@
 
 import React, { useContext } from 'react'
 import { useRouter } from 'next/navigation'
+import type { ReactElement } from 'react'
 
 import { AppContext } from '@/app/providers'
 import { Container } from '@/components/Container'
@@ -12,6 +13,16 @@ import { FaArrowRight } from 'react-icons/fa6'
 import Tags from '@/components/Tags'
 import { BlogPosting } from 'schema-dts'
 import { WithContext } from 'schema-dts'
+
+function isReactElement(child: unknown): child is ReactElement {
+  return (
+    typeof child === 'object' &&
+    child !== null &&
+    'props' in child &&
+    typeof (child as any).props === 'object' &&
+    (child as any).props !== null
+  )
+}
 
 const convertChilderIntoText = (children: React.ReactNode): string => {
   const escapeHtml = (text: string): string => {
@@ -42,8 +53,10 @@ const convertChilderIntoText = (children: React.ReactNode): string => {
     return children.map(convertChilderIntoText).join(' ')
   }
 
-  if (typeof children === 'object' && 'props' in children) {
-    return convertChilderIntoText(children.props.children)
+  if (isReactElement(children)) {
+    return convertChilderIntoText(
+      (children as React.ReactElement<any, any>).props.children,
+    )
   }
 
   return ''

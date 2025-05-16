@@ -1,6 +1,6 @@
-import {ArticleLayout} from '@/components/ArticleLayout'
+import { ArticleLayout } from '@/components/ArticleLayout'
 import ArticleImage from "./article-images";
-import {GitHubIcon} from "../../../components/SocialIcons";
+import { GitHubIcon } from "../../../components/SocialIcons";
 
 export const article = {
     author: 'Abdullah Hashim',
@@ -38,7 +38,10 @@ export const metadata = {
 }
 
 
-export default (props) => <ArticleLayout article={article} {...props} />
+export default async (props) => {
+    const children = await props.children
+    return <ArticleLayout article={article} children={children} />
+}
 
 تطوير التطبيقات الويب المتقدمة باستخدام MVC في .NET من المهام التي قد تتطلب بعض الجهد، خاصةً عندما يتعلق الأمر بـ(State Management)، او التحقق من صحة المدخلات في واجهات المستخدم (Frontend Validation)، أو التعامل مع نماذج بيانات معقدة.
 

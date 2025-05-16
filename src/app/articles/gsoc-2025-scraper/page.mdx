@@ -1,4 +1,4 @@
-import {ArticleLayout} from '@/components/ArticleLayout'
+import { ArticleLayout } from '@/components/ArticleLayout'
 import IntroImageComponent from "./into-image";
 
 export const article = {
@@ -37,7 +37,10 @@ export const metadata = {
 }
 
 
-export default (props) => <ArticleLayout article={article} {...props} />
+export default async (props) => {
+    const children = await props.children
+    return <ArticleLayout article={article} children={children} />
+}
 
 
 ## مقدمة

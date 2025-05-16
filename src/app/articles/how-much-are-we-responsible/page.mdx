@@ -1,4 +1,4 @@
-import {ArticleLayout} from '@/components/ArticleLayout'
+import { ArticleLayout } from '@/components/ArticleLayout'
 
 export const article = {
     author: 'Abdullah Hashim',
@@ -17,7 +17,10 @@ export const metadata = {
     description: article.description,
 }
 
-export default (props) => <ArticleLayout article={article} {...props} />
+export default async (props) => {
+    const children = await props.children
+    return <ArticleLayout article={article} children={children} />
+}
 
 
 في الأيام العادية، ندرك جيدًا قوانين الحياة الأساسية ونمارس حياتنا بناءً عليها، مثل أن المنافسة حتمية وأن الحياة ليست عادلة دائمًا. نعلم أن الصداقات الحقيقية نادرة، وأن الحب قد لا يكون متبادلًا، و ان أسلوب الحياة الصحي يتطلب جهد دائم، و ان الأعمال لا تؤدي نفسها بل تتطلب الجهد والمثابرة. ولكن المعايير تختلف تمامًا عندما نكون بالقرب من أطفالنا؛ نحن نتجاهل هذه الحقائق تمامًا ونعتقد أنه يمكننا جعل حياتهم أقل صعوبة في أي وقت أردناه، وأنه إذا قمنا بدورنا على أكمل وجه، فلن يواجهوا أي تحديات أبدًا.

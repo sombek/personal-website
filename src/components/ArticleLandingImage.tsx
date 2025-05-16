@@ -12,13 +12,12 @@ export function ArticleLandingImage({
   src,
   alt,
   className,
-  priority = false,
-  quality = 90,
+  priority = true,
 }: ArticleLandingImageProps) {
   return (
     <div
       className={clsx(
-        'relative aspect-[16/9] w-full overflow-hidden rounded-lg',
+        'relative aspect-video w-full overflow-hidden rounded-lg',
         className,
       )}
     >
@@ -27,7 +26,7 @@ export function ArticleLandingImage({
         alt={alt}
         fill
         priority={priority}
-        quality={quality}
+        loading="eager"
         className="object-cover"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
