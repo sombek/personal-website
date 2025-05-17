@@ -1,18 +1,14 @@
 'use client'
-
-import React, { useContext } from 'react'
-import { useRouter } from 'next/navigation'
-import type { ReactElement } from 'react'
-
-import { AppContext } from '@/app/providers'
-import { Container } from '@/components/Container'
-import { Prose } from '@/components/Prose'
-import { type ArticleWithSlug } from '@/lib/articles'
-import { formatDate } from '@/lib/formatDate'
-import { FaArrowRight } from 'react-icons/fa6'
-import Tags from '@/components/Tags'
-import { BlogPosting } from 'schema-dts'
-import { WithContext } from 'schema-dts'
+import { Container } from '@/components/Container';
+import { Prose } from '@/components/Prose';
+import { type ArticleWithSlug } from '@/lib/articles';
+import { formatDate } from '@/lib/formatDate';
+import Tags from '@/components/Tags';
+import { BlogPosting } from 'schema-dts';
+import { WithContext } from 'schema-dts';
+import { ReactElement, useEffect, useRef } from 'react';
+import EditArticle from './EditArticle';
+import { MDXEditorMethods } from '@mdxeditor/editor';
 
 function isReactElement(child: unknown): child is ReactElement {
   return (
@@ -21,7 +17,7 @@ function isReactElement(child: unknown): child is ReactElement {
     'props' in child &&
     typeof (child as any).props === 'object' &&
     (child as any).props !== null
-  )
+  );
 }
 
 const convertChilderIntoText = (children: React.ReactNode): string => {
@@ -34,43 +30,43 @@ const convertChilderIntoText = (children: React.ReactNode): string => {
       .replace(/'/g, '&#039;')
       .replace(/\n/g, ' ')
       .replace(/\s+/g, ' ')
-      .trim()
-  }
+      .trim();
+  };
 
   if (children == null) {
-    return ''
+    return '';
   }
 
   if (typeof children === 'string') {
-    return escapeHtml(children)
+    return escapeHtml(children);
   }
 
   if (typeof children === 'number') {
-    return escapeHtml(children.toString())
+    return escapeHtml(children.toString());
   }
 
   if (Array.isArray(children)) {
-    return children.map(convertChilderIntoText).join(' ')
+    return children.map(convertChilderIntoText).join(' ');
   }
 
   if (isReactElement(children)) {
     return convertChilderIntoText(
       (children as React.ReactElement<any, any>).props.children,
-    )
+    );
   }
 
-  return ''
-}
+  return '';
+};
 
 export function ArticleLayout({
   article,
+  articleContent,
   children,
 }: {
-  article: ArticleWithSlug
-  children: React.ReactNode
+  article: ArticleWithSlug;
+  articleContent: string;
+  children: React.ReactNode;
 }) {
-  let router = useRouter()
-  let { previousPathname } = useContext(AppContext)
   const jsonLd: WithContext<BlogPosting> = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -91,26 +87,28 @@ export function ArticleLayout({
       name: 'Abdullah Hashim',
       email: 'abdullah-hashim@outlook.com',
     },
-  }
+  };
+  const editorRef = useRef<MDXEditorMethods>(null)
 
+  useEffect( ()=>{
+    // trimmed content delete the first 60 lines of code
+    // const trimmedContent = articleContent.split('\n').slice(60).join('\n')
+    editorRef.current?.setMarkdown(articleContent)
+    console.log('editorRef',editorRef.current?.getMarkdown())
+  },[editorRef.current])
+  
   return (
     <Container className="mt-16 lg:mt-32">
-      <script
+      {/* Only show in dev mode */}
+      {process.env.NODE_ENV === 'development' && (
+        <EditArticle editorRef={editorRef} markdown="## Test Content"/>
+      )}
+      {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="xl:relative">
         <div className="mx-auto max-w-2xl">
-          {previousPathname && (
-            <button
-              type="button"
-              onClick={() => router.back()}
-              aria-label="Go back to articles"
-              className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition lg:absolute lg:-right-5 lg:-mt-2 lg:mb-0 xl:-top-1.5 xl:right-0 xl:mt-0 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20"
-            >
-              <FaArrowRight className="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400" />
-            </button>
-          )}
           <article>
             <header className="flex flex-col">
               <h1 className="mt-6 text-4xl font-bold tracking-tight text-teal-800 sm:text-5xl dark:text-zinc-100">
@@ -130,7 +128,7 @@ export function ArticleLayout({
             <Tags tags={article.tags} />
           </article>
         </div>
-      </div>
+      </div> */}
     </Container>
-  )
+  );
 }

@@ -1,6 +1,7 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
 import { ArticleImage } from '@/components/ArticleImage'
 import { ArticleLandingImage } from '@/components/ArticleLandingImage'
+import { getMdxContent } from '@/lib/mdxActions'
 export const article = {
   author: 'Abdullah Hashim',
   date: '2025-05-14',
@@ -49,7 +50,8 @@ export const metadata = {
 
 export default async (props) => {
   const children = await props.children
-  return <ArticleLayout article={article} children={children} />
+  const testContent = await getMdxContent("first-year-parent");
+  return <ArticleLayout article={article} children={children} articleContent={testContent} />
 }
 
 <ArticleLandingImage
@@ -65,12 +67,8 @@ export default async (props) => {
 
 ## 🚗 كرسي السيارة  
 
-<ArticleImage 
-  src="/parent/car-seat.png"
-  alt="Babyzen Car Seat"
-  label="Babyzen Car Seat"
-  labelLink="https://www.nahdionline.com/en-sa/babyzen-yoyo-car-seat-by-besafe-black/pdp/102156612"
-/>
+![Babyzen Car Seat](/parent/car-seat.png)
+*[Babyzen Car Seat](https://www.nahdionline.com/en-sa/babyzen-yoyo-car-seat-by-besafe-black/pdp/102156612)*
 
 من أول الأشياء اللي احتجناها لما طلعنا من المستشفى هو **كرسي السيارة**.  
 أنصح بـ **Babyzen Car Seat**، ممتاز جدًا للمواليد الجدد.
@@ -85,26 +83,15 @@ export default async (props) => {
 ومازلنا نستخدم الأثنين حسب الحاجة، في وقت السفر او الأستخدام اليومي
 
 
-<ArticleImage 
-  src="/parent/mirror.png"
-  alt="Mirror"
-  label="مرايا للسيارة"
-  labelLink="https://amzn.to/3F7VrkT"
-  height={200}
->
-  حاجة ثانية حلوة المرايا الي تركب في السيارة تساعد انك تشوفوا وجه الطفل في وهو في كرسي السيارة وقت القيادة
-</ArticleImage>
+![Mirror](/parent/mirror.png)
+*[مرايا للسيارة](https://amzn.to/3F7VrkT)*
 
-
+حاجة ثانية حلوة المرايا الي تركب في السيارة تساعد انك تشوفوا وجه الطفل في وهو في كرسي السيارة وقت القيادة
 
 ## 🚼 العربيات
 
-<ArticleImage 
-  src="/parent/yoyo.png"
-  alt="Babyzen Yoyo3 Stroller"
-  label="Babyzen Yoyo3 Stroller"
-  labelLink="https://www.firstcry.sa/en/combopack?proid=4076&gad_campaignid=18066543513&gbraid=0AAAAABphBAEWQRA9xU3Fgw5scgjsqUshQ"
-/>
+![Babyzen Yoyo3 Stroller](/parent/yoyo.png)
+*[Babyzen Yoyo3 Stroller](https://www.firstcry.sa/en/combopack?proid=4076&gad_campaignid=18066543513&gbraid=0AAAAABphBAEWQRA9xU3Fgw5scgjsqUshQ)*
 
 خفيفة جدًا، صغيرة، وتدخل معك كـ carry-on في الطيارة.  
 تناسب الأطفال حتى عمر كبير، وفيها إضافات كثيرة مثل:
@@ -115,11 +102,9 @@ export default async (props) => {
 - ٣ أنواع كراسي: باسنيت رضيع، باسنيت لحاف، وكرسي عادي
 
 
-<ArticleImage 
-  src="/parent/yoyo-newborn.png"
-  alt="Yoyo Newborn Pack"
-  label="باسنيت الرضيع"
-/>
+![Yoyo Newborn Pack](/parent/yoyo-newborn.png)
+*باسنيت الرضيع*
+
 باسنيت الرضيع الصراحة ما انصح فيه، حسيته واسع و فكه وتركيبه كان صعب بالمقارنه مع الخيار الثاني
 الباسنيت اللحاف كان مناسب و استخدمناه فترة اطول
 [فيديو يشرح الفرق بين الاثنين](https://www.youtube.com/watch?v=NKBA8scyeCI)
@@ -140,12 +125,8 @@ export default async (props) => {
 بعد فترة لاحظنا إنها خفيفة بزيادة، فلو الأرض مو ناعمة (مثل الحدائق أو الأسواق) تسبب اهتزاز مزعج للطفل، ومكان التخزين فيها محدود.
 و ظهر العربية ماينسدح ١٨٠ درجة فمايقدر الرضيع ينام بسهولة.
 
-<ArticleImage 
-  src="/parent/foppa.png"
-  alt="Foppapedretti Tictoc"
-  label="Foppapedretti Tictoc"
-  labelLink="https://amzn.to/4jGTj2C"
-/>
+![Foppapedretti Tictoc](/parent/foppa.png)
+*[Foppapedretti Tictoc](https://amzn.to/4jGTj2C)*
 
 وبعد فترة اشترينا دي العربية الثانية و كانت أفضل.
 
@@ -167,12 +148,8 @@ export default async (props) => {
 بما ان حديثي الولادة غالبا يكونوا نايمين اغلب الوقت، هذا السرير كان مناسب انه ينحط في الصالة او الغرفة اللي فيها الطفل 
 وميزته انه خفيف وسهل التنقل داخل البيت 
 
-<ArticleImage 
-  src="/parent/snuzbasket.png"
-  alt="SnuzBaskit"
-  label="SnuzBaskit"
-  labelLink="https://amzn.to/4m0SD9F"
-/>
+![SnuzBaskit](/parent/snuzbasket.png)
+*[SnuzBaskit](https://amzn.to/4m0SD9F)*
 
 
 - استخدمناه حتى عمر ٥–٦ شهور إلى ما يبدأ يجلس فارس لأن بعدها يصير خطر عليهم ممكن يطيحوا منه
@@ -180,12 +157,8 @@ export default async (props) => {
 في نفس الفترة استخدمنا سرير ثاني اثناء نوم الليل في غرفة النوم
 
 
-<ArticleImage 
-  src="/parent/SnuzPod.png"
-  alt="SnuzPod"
-  label="SnuzPod4"
-  labelLink="https://amzn.to/42Y11hr"
-/>
+![SnuzPod](/parent/SnuzPod.png)
+*[SnuzPod4](https://amzn.to/42Y11hr)*
 
 
 - فيه ميزة الميلان لتقليل احتمالية القلاص  
@@ -196,12 +169,8 @@ export default async (props) => {
 
 السرير استخدمناه اثناء السفر و وقفنا نستخدمه لين قبل يبدأ يجلس فارس
 
-<ArticleImage 
-  src="/parent/travel-crib.png"
-  alt="Travel Crib"
-  label="Travel Crib"
-  labelLink="https://amzn.to/4d4qhrh"
-/>
+![Travel Crib](/parent/travel-crib.png)
+*[Travel Crib](https://amzn.to/4d4qhrh)*
 
 - خفيف  
 - يتطبق بسهولة  
@@ -216,22 +185,15 @@ export default async (props) => {
 [المرجع](https://www.cpsc.gov/Newsroom/News-Releases/2010/CPSC-Issues-Warning-on-Drop-Side-Cribs32-Fatalities-in-Drop-Side-Cribs-in-Last-9-Years)
 
 
-<ArticleImage 
-  src="/parent/ikea-bed.png"
-  alt="Ikea Sundvik Cot"
-  label="Ikea Sundvik Cot"
-  labelLink="https://www.ikea.com/sa/en/p/sundvik-cot-white-00248567/?gbraid=0AAAAAo5JCUKIhfg6Alp_x7mmOA13cZFPW"
-/>
+![Ikea Sundvik Cot](/parent/ikea-bed.png)
+*[Ikea Sundvik Cot](https://www.ikea.com/sa/en/p/sundvik-cot-white-00248567/?gbraid=0AAAAAo5JCUKIhfg6Alp_x7mmOA13cZFPW)*
+
 وعشان كذا اشترينا سرير ايكيا الصراحة ماحبه كثير لكن يأدي الغرض لأنه يصير عميق اذا جيت تنزل البيبي داخله
 
 
 
-<ArticleImage 
-  src="/parent/guava.png"
-  alt="Guava Lotus Crib"
-  label="Guava Lotus Crib"
-  labelLink="https://amzn.to/455SHPu"
-/>
+![Guava Lotus Crib](/parent/guava.png)
+*[Guava Lotus Crib](https://amzn.to/455SHPu)*
 
 
 هذا السرير ناسبنا كثير لما نسافر خصوصا بعد ماصار فارس يقدر يجلس و يتحرك 
@@ -251,12 +213,8 @@ export default async (props) => {
 بالنسبة للرضاعة الصناعية استخدمنا Babybrezza لتجهيز الرضعات في اسرع وقت ممكن
 صدقني راح تحتاج انك تسوي اسرع رضعة بالدنيا خصوصا الساعة ٣ الفجر 😂
 
-<ArticleImage 
-  src="/parent/Baby-Brezza-Formula.png"
-  alt="Baby Brezza Formula Pro Mini"
-  label="Baby Brezza Formula Pro Mini"
-  labelLink="https://amzn.to/43iDVSZ"
-/>
+![Baby Brezza Formula Pro Mini](/parent/Baby-Brezza-Formula.png)
+*[Baby Brezza Formula Pro Mini](https://amzn.to/43iDVSZ)*
 
 اشترينا النسخة الميني و كانت مناسبة جدًا، لكن فيه نسخ مختلفة اعتقد فيها امكانية التشغيل بالواي فاي 
 
@@ -266,12 +224,8 @@ export default async (props) => {
 في البداية الطفل يحتاج ان الرضاعات والمصاصات تكون كلها معقمة خصوصا اول ٣ اشهر 
 استخدمنا جهاز التعقيم والتنشيف هذا يساعد كثير ويختصر الوقت - بدل غلي المصاصات في الماء الحار - 
 
-<ArticleImage 
-  src="/parent/ster.png"
-  alt="Baby Brezza Bottle Sterilizer and Dryer"
-  label="Baby Brezza Bottle Sterilizer and Dryer"
-  labelLink="https://amzn.to/3FfvAaB"
-/>
+![Baby Brezza Bottle Sterilizer and Dryer](/parent/ster.png)
+*[Baby Brezza Bottle Sterilizer and Dryer](https://amzn.to/3FfvAaB)*
 
 
 
@@ -280,26 +234,17 @@ export default async (props) => {
 الألعاب كثيرة و متنوعة و يكبر عليها بسرعة عشان كذا كان إشتراكنا مع MonkiBox مفيد جدًا 
 كل ٣ اشهر تقريبا يرسلوا لنا صندوق يحتوي على عدد من الألعاب و تكون متناسبة مع مراحل نمو الطفل 
 
-<ArticleImage 
-  src="/parent/monkibox.png"
-  alt="MonkiBox"
-  label="MonkiBox"
-  labelLink="https://monkibox.com"
->
+![MonkiBox](/parent/monkibox.png)
+*[MonkiBox](https://monkibox.com)*
+
 و كمان مشكورين اعطوني خصم ١٠% للشيخ فارس `Faris10`
 تقدروا تستخدموه في الإشتراك 
-</ArticleImage>
 
 
 
 وبالإضافة استخدمنا دي الفرشة كانت مناسبة لفارس خلال فترة تعلمه انه يقلب نفسه 
-<ArticleImage 
-  src="/parent/lovevery.png"
-  alt="Lovevery The Play Gym"
-  label="Lovevery The Play Gym"
-  labelLink="https://amzn.to/42Ummty"
-  width={400}
-/>  
+![Lovevery The Play Gym](/parent/lovevery.png)
+*[Lovevery The Play Gym](https://amzn.to/42Ummty)*
 
 
 و من بعدها حاولنا نشتري العاب جديدة بس تكون تساعد في مراحل النمو 
