@@ -1,6 +1,32 @@
 @import 'tailwindcss';
 @config '../../tailwind.config.ts';
 
+.prose hr {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.prose ul li,
+.prose ul {
+  margin: 0.5rem 0;
+}
+
+.prose img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+.prose * {
+  direction: rtl;
+}
+
+._contentEditable_sects_380 {
+  color: unset !important;
+}
+._imageWrapper_sects_920 {
+  display: block !important;
+}
+
 .highlight {
   background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=04686F);
   @apply cursor-default p-4 text-white underline hover:no-underline;

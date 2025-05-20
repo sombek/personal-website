@@ -1,4 +1,5 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
+import { getMdxContent } from '@/lib/mdxActions'
 
 export const article = {
     author: 'Abdullah Hashim',
@@ -19,7 +20,9 @@ export const metadata = {
 
 export default async (props) => {
     const children = await props.children
-    return <ArticleLayout article={article} children={children} />
+    const dirname = __dirname.split('/').pop()
+    const articleContent = await getMdxContent(dirname);
+    return <ArticleLayout article={article} children={children} articleContent={articleContent} />
 }
 
 
