@@ -268,7 +268,6 @@ export default function InsanJamadProject() {
               <a
                 href="https://insan-jamad.com"
                 target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center rounded-lg bg-teal-600 px-8 py-4 text-lg font-medium text-white shadow-sm hover:bg-teal-700 focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:outline-none"
               >
                 ابدأ اللعب الآن
